@@ -1,7 +1,7 @@
 package org.example.corejava.exception.finallyBlock;
 
 
-//---->Whenever Exception occur or not finally block contineous to execute.
+//---->Whenever Exception occur or not finally block continuous to execute.
 //----> finally is the extension of try and catch block.
 public class B {
     int x=12;

@@ -8,6 +8,6 @@ public class ReverseWord {
             rev=rev+str[i]+" ";
         }
         System.out.println("Reverse String::");
-        System.out.println(rev.substring(0,rev.length()-1));
+        System.out.println(rev.trim());
     }
 }

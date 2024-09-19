@@ -1,6 +1,6 @@
 package org.example.corejava.string;
 
-public class CountWord {
+public class CountTotalWordOfSentence {
     public static void main(String[] args) {
         String str="Java Developer";
         int count=0;
