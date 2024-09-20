@@ -1,4 +1,4 @@
-package org.example.corejava.Basics.constructor;
+package org.example.corejava.oops.constructor;
 
 public class A {
     A() {
