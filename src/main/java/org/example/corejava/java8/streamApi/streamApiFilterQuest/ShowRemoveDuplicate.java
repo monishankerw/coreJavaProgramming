@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class RemoveDuplicate {
+public class ShowRemoveDuplicate {
     public static void main(String[] args) {
         List<Integer> nums = Arrays.asList(1, 2, 2, 3, 1, 3, 4, 5, 6, 7, 8);
         Set<Integer> set = new HashSet<>();
