@@ -1786,29 +1786,5 @@ public class MostFrequentCharacter {
 }
 ```
 
-### 40. **Find the First Non-Repeating Character in a String**
-```java
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-public class FirstNonRepeatingCharacter {
-    public static void main(String[] args) {
-        String str = "swiss";
-        System.out.println("First non-repeating character: " + firstNonRepeatingCharacter(str));
-    }
-
-    private static char firstNonRepeatingCharacter(String s) {
-        Map<Character, Integer> charCount = new LinkedHashMap<>();
-        for (char ch : s.toCharArray()) {
-            charCount.put(ch, charCount.getOrDefault(ch, 0) + 1);
-        }
-        for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {
-            if (entry.getValue() == 1) {
-                return entry.getKey();
-            }
-        }
-        return '\0';
-    }
-}
 ```
 
