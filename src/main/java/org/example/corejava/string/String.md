@@ -1614,6 +1614,83 @@ public class Permutations {
         }
     }
 }
+Here is a step-by-step explanation of how the `permute` method works, using recursion and backtracking:
+
+### Step-by-Step Breakdown:
+
+1. **Initial Call:**
+   - The initial method call is `permute("", "abc", result)`, where:
+     - `prefix = ""` (empty string, no characters chosen yet)
+     - `s = "abc"` (all characters are still available to use)
+     - `result = []` (empty list to store the permutations)
+   
+2. **First Level Recursion (Processing "abc"):**
+   - The method checks if `s.length()` is 0 (it is not).
+   - It enters a loop to iterate over each character in `"abc"`:
+     - First, it picks `'a'` and calls `permute("a", "bc", result)`:
+       - `prefix = "a"`
+       - `s = "bc"` (character `'a'` is removed from `s`).
+     - The method will recursively go deeper with this choice.
+
+3. **Second Level Recursion (Processing "bc"):**
+   - Now, the method is working with `"bc"`:
+     - Again, it checks if `s.length()` is 0 (it is not).
+     - It enters another loop to iterate over `"bc"`:
+       - First, it picks `'b'` and calls `permute("ab", "c", result)`:
+         - `prefix = "ab"`
+         - `s = "c"` (character `'b'` is removed from `s`).
+       - The method continues with this choice.
+
+4. **Third Level Recursion (Processing "c"):**
+   - The method is now working with `"c"`:
+     - It checks if `s.length()` is 0 (it is not).
+     - It loops over the single character `'c'` and calls `permute("abc", "", result)`:
+       - `prefix = "abc"`
+       - `s = ""` (character `'c'` is removed, leaving an empty string).
+     - This is the deepest point of the recursion for this path.
+
+5. **Base Case Reached:**
+   - At this point, the method checks `s.length()` and finds that it is 0.
+   - This means a complete permutation has been formed: `"abc"`.
+   - The method adds `"abc"` to the `result` list: `result = ["abc"]`.
+   - Now the method backtracks to explore other possibilities.
+
+6. **Backtracking to Explore Other Permutations:**
+   - After the permutation `"abc"` is added, the method backtracks to the second level where it had chosen `'b'`.
+   - It now picks the second character `'c'` from `"bc"` and calls `permute("ac", "b", result)`:
+     - `prefix = "ac"`
+     - `s = "b"`
+   - The recursion continues with this new choice.
+
+7. **Completing More Permutations:**
+   - The same process continues:
+     - From `"ac"`, it picks `'b'` and calls `permute("acb", "", result)`.
+     - Since `s` is empty, `"acb"` is added to the result list: `result = ["abc", "acb"]`.
+   - The method backtracks again and keeps trying other combinations like `bac`, `bca`, `cab`, `cba`, etc.
+
+8. **Recursion Ends:**
+   - After all characters have been explored and all possible permutations have been added to `result`, the recursion ends.
+   - The final list of permutations is: `["abc", "acb", "bac", "bca", "cab", "cba"]`.
+
+### Visual Representation:
+
+The flow of recursive calls can be visualized as a decision tree:
+
+```
+                       ""
+                    /  |  \
+                  a    b    c
+                / \   / \   / \
+              ab  ac ba  bc ca  cb
+             /     \  |    \ |   \
+           abc    acb bac  bca cab  cba
+```
+
+- Each path in this tree represents a different permutation being constructed.
+- Once a full permutation is built (when no more characters are left in `s`), it gets added to the result list.
+- Backtracking allows the algorithm to explore all possible orders by removing one character at a time and trying others.
+
+
 ```
 
 ### 34. **Find the Number of Words in a String Using Regular Expressions**
@@ -1787,4 +1864,247 @@ public class MostFrequentCharacter {
 ```
 
 ```
+Here is a comprehensive list of string methods for both basic and advanced levels, useful in Data Structures and Algorithms (DSA) and development:
+
+### **Basic String Methods**
+These are essential for beginner-level programming and basic string manipulation.
+
+1. **`charAt(int index)`**
+   - Returns the character at the specified index.
+   ```java
+   String str = "hello";
+   char ch = str.charAt(1);  // 'e'
+   ```
+
+2. **`length()`**
+   - Returns the length of the string.
+   ```java
+   String str = "hello";
+   int len = str.length();  // 5
+   ```
+
+3. **`toLowerCase()`**
+   - Converts all characters to lowercase.
+   ```java
+   String str = "HELLO";
+   String lower = str.toLowerCase();  // "hello"
+   ```
+
+4. **`toUpperCase()`**
+   - Converts all characters to uppercase.
+   ```java
+   String str = "hello";
+   String upper = str.toUpperCase();  // "HELLO"
+   ```
+
+5. **`substring(int beginIndex)`**
+   - Returns the substring starting from the specified index.
+   ```java
+   String str = "hello";
+   String sub = str.substring(2);  // "llo"
+   ```
+
+6. **`substring(int beginIndex, int endIndex)`**
+   - Returns the substring from `beginIndex` to `endIndex - 1`.
+   ```java
+   String str = "hello";
+   String sub = str.substring(1, 4);  // "ell"
+   ```
+
+7. **`equals(Object anotherString)`**
+   - Compares two strings for equality.
+   ```java
+   String str1 = "hello";
+   String str2 = "hello";
+   boolean isEqual = str1.equals(str2);  // true
+   ```
+
+8. **`equalsIgnoreCase(String anotherString)`**
+   - Compares two strings, ignoring case considerations.
+   ```java
+   String str1 = "Hello";
+   String str2 = "hello";
+   boolean isEqual = str1.equalsIgnoreCase(str2);  // true
+   ```
+
+9. **`startsWith(String prefix)`**
+   - Checks if the string starts with the given prefix.
+   ```java
+   String str = "hello";
+   boolean starts = str.startsWith("he");  // true
+   ```
+
+10. **`endsWith(String suffix)`**
+   - Checks if the string ends with the given suffix.
+    ```java
+    String str = "hello";
+    boolean ends = str.endsWith("lo");  // true
+    ```
+
+11. **`indexOf(char ch)`**
+   - Returns the index of the first occurrence of the specified character.
+    ```java
+    String str = "hello";
+    int index = str.indexOf('e');  // 1
+    ```
+
+12. **`lastIndexOf(char ch)`**
+   - Returns the index of the last occurrence of the specified character.
+    ```java
+    String str = "hello";
+    int index = str.lastIndexOf('l');  // 3
+    ```
+
+13. **`replace(char oldChar, char newChar)`**
+   - Replaces all occurrences of the old character with the new character.
+    ```java
+    String str = "hello";
+    String newStr = str.replace('l', 'p');  // "heppo"
+    ```
+
+14. **`trim()`**
+   - Removes leading and trailing spaces.
+    ```java
+    String str = "  hello  ";
+    String trimmed = str.trim();  // "hello"
+    ```
+
+### **Intermediate String Methods**
+These methods are often used in DSA and development.
+
+15. **`split(String regex)`**
+   - Splits the string into an array using a regular expression.
+    ```java
+    String str = "apple,orange,banana";
+    String[] fruits = str.split(",");  // ["apple", "orange", "banana"]
+    ```
+
+16. **`matches(String regex)`**
+   - Checks if the string matches the given regular expression.
+    ```java
+    String str = "hello123";
+    boolean matches = str.matches("[a-z]+[0-9]+");  // true
+    ```
+
+17. **`compareTo(String anotherString)`**
+   - Compares two strings lexicographically.
+    ```java
+    String str1 = "apple";
+    String str2 = "banana";
+    int result = str1.compareTo(str2);  // negative value (-1)
+    ```
+
+18. **`compareToIgnoreCase(String str)`**
+   - Compares two strings lexicographically, ignoring case differences.
+    ```java
+    String str1 = "Apple";
+    String str2 = "apple";
+    int result = str1.compareToIgnoreCase(str2);  // 0 (equal)
+    ```
+
+19. **`contains(CharSequence seq)`**
+   - Returns `true` if the string contains the specified sequence of characters.
+    ```java
+    String str = "hello world";
+    boolean contains = str.contains("world");  // true
+    ```
+
+20. **`join(CharSequence delimiter, CharSequence... elements)`**
+   - Joins strings with a specified delimiter.
+    ```java
+    String result = String.join("-", "2024", "09", "23");  // "2024-09-23"
+    ```
+
+21. **`toCharArray()`**
+   - Converts the string into a char array.
+    ```java
+    String str = "hello";
+    char[] chars = str.toCharArray();  // ['h', 'e', 'l', 'l', 'o']
+    ```
+
+22. **`isEmpty()`**
+   - Checks if the string is empty.
+    ```java
+    String str = "";
+    boolean empty = str.isEmpty();  // true
+    ```
+
+23. **`intern()`**
+   - Returns a canonical representation for the string object.
+    ```java
+    String str1 = new String("hello").intern();
+    ```
+
+### **Advanced String Methods**
+Useful in advanced scenarios like optimization, DSA algorithms, or memory management.
+
+24. **`regionMatches(int toffset, String other, int ooffset, int len)`**
+   - Tests if two string regions are equal.
+    ```java
+    String str1 = "HelloWorld";
+    String str2 = "World";
+    boolean result = str1.regionMatches(5, str2, 0, 5);  // true
+    ```
+
+25. **`codePointAt(int index)`**
+   - Returns the Unicode code point at the specified index.
+    ```java
+    String str = "hello";
+    int codePoint = str.codePointAt(0);  // 104 (Unicode for 'h')
+    ```
+
+26. **`format(String format, Object... args)`**
+   - Formats the string using a format string and arguments (similar to `printf`).
+    ```java
+    String formatted = String.format("Name: %s, Age: %d", "John", 25);
+    ```
+
+27. **`repeat(int count)`**
+   - Repeats the string `count` times.
+    ```java
+    String str = "abc";
+    String repeated = str.repeat(3);  // "abcabcabc"
+    ```
+
+28. **`strip()`**
+   - Removes leading and trailing spaces (introduced in Java 11).
+    ```java
+    String str = "  hello  ";
+    String stripped = str.strip();  // "hello"
+    ```
+
+29. **`stripLeading()`**
+   - Removes only the leading spaces (introduced in Java 11).
+    ```java
+    String str = "  hello";
+    String leadingStripped = str.stripLeading();  // "hello"
+    ```
+
+30. **`stripTrailing()`**
+   - Removes only the trailing spaces (introduced in Java 11).
+    ```java
+    String str = "hello  ";
+    String trailingStripped = str.stripTrailing();  // "hello"
+    ```
+
+31. **`transform(Function<String, String> f)`**
+   - Applies a transformation to the string (introduced in Java 12).
+    ```java
+    String transformed = "hello".transform(s -> s.toUpperCase());  // "HELLO"
+    ```
+
+32. **`chars()`**
+   - Returns an `IntStream` of character codes.
+    ```java
+    String str = "hello";
+    str.chars().forEach(System.out::println);  // prints ASCII values of characters
+    ```
+
+### **Use Cases in DSA**
+- **Pattern Matching**: Use `indexOf()`, `matches()`, and `split()` for pattern matching in string-based problems.
+- **Palindromes**: Use `charAt()`, `toCharArray()`, or reverse strings for checking palindromes.
+- **Substring Problems**: Use `substring()`, `compareTo()` in algorithms related to substrings.
+- **Trie Implementation**: Use `charAt()`, `toCharArray()` to implement Trie data structure.
+
+These methods cover a wide range of operations required in both string manipulation for development and competitive programming.
 
