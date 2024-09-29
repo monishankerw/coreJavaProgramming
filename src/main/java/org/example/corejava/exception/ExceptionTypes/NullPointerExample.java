@@ -1,4 +1,4 @@
-package org.example.corejava.exception;
+package org.example.corejava.exception.ExceptionTypes;
 
 //when you access non-static member with null reference variable we get null pointer exception.
 public class NullPointerExample {

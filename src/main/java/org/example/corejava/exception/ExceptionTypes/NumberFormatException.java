@@ -1,4 +1,4 @@
-package org.example.corejava.exception;
+package org.example.corejava.exception.ExceptionTypes;
 
 //When an invalid string to number conversion is done we get number format in the exception.
 public class NumberFormatException {

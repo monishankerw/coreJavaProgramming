@@ -1,4 +1,3 @@
-HTML tags can be broadly classified into different types based on their functionality. Here is a list of the most commonly used HTML tags:
 
 ### 1. **Basic Structure Tags**
 - `<!DOCTYPE>`: Defines the document type.
@@ -119,4 +118,3 @@ HTML tags can be broadly classified into different types based on their function
 - `<big>`: Makes text larger (deprecated).
 - `<tt>`: Teletype text (deprecated).
 
-This is a comprehensive list of HTML tags used to structure and style web pages.
