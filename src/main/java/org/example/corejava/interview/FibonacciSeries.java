@@ -1,6 +1,6 @@
 package org.example.corejava.interview;
 
-public class FabonacciSeries {
+public class FibonacciSeries {
     public static void main(String[] args) {
         int a=0,b=1,c;
         System.out.println(a+" "+b);

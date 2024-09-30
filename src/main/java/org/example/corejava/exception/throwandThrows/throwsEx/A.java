@@ -13,6 +13,7 @@ public class A {
             a1.test();
         }catch (Exception e){
             System.out.println(e);
+
         }
     }
 }
