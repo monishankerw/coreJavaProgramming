@@ -1,4 +1,4 @@
-package org.example.corejava.exception.throwandThrows.throwException.customException;
+package org.example.corejava.exception.customException;
 
 public class CustomsException extends Exception{
     public CustomsException(String message){
