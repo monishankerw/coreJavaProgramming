@@ -10,6 +10,7 @@ public class RemoveDuplicate {
         for (int num:arr){
             set.add(num);
         }
+
         System.out.println(set);
     }
 }
