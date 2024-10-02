@@ -1,13 +1,9 @@
 package org.example.corejava.exception;
 
-import org.example.corejava.exception.customException.InvalidAgeException;
-import org.example.corejava.exception.customException.Message;
-import org.example.corejava.exception.throwandThrows.throwsEx.C;
-
 public class Exceptions {
     /*
         1. What is an exception in Java?
-        invalid user input given program it will be hold the program execution abruptly
+        invalid user input given in program it will be hold the program execution abruptly
         check(Compile Time) and unchecked Exception(Run time)
 
      */
