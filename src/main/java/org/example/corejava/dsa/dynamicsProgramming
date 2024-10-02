@@ -1,0 +1,229 @@
+Introduction to Dynamic Programming
+
+Dynamic Programming is an algorithmic approach to solve some complex problems easily and save time and number of comparisons by storing the results of past computations. The basic idea of dynamic programming is to store the results of previous calculation and reuse it in future instead of recalculating them.
+
+
+We can also see Dynamic Programming as dividing a particular problem into subproblems and then storing the result of these subproblems to calculate the result of the actual problem.
+
+
+Consider the problem to find the N-th Fibonacci number.
+
+We know that n-th fibonacci number fib(n) can be defined as:
+fib(n) = fib(n-1) + fib(n-2), where n >= 2.
+
+and,
+
+fib(0) = 0
+fib(1) = 1
+
+
+
+We can see that the above function fib() to find the nth fibonacci number is divided into two subproblems fib(n-1) and fib(n-2) each one of which will be further divided into subproblems and so on.
+
+The first few Fibonacci numbers are:
+
+1, 1, 2, 3, 5, 8, 13, 21, 34,........
+
+
+The recursive program to find N-th Fibonacci number is shown below:
+
+
+int fib(int n)
+{
+    if (n <= 1)
+        return n;
+
+    return fib(n-1) + fib(n-2);
+}
+Below is the recursion tree for the recursive solution to find the N-th Fibonacci number:
+                         fib(5)
+                     /             \
+               fib(4)                fib(3)
+             /      \                /     \
+         fib(3)      fib(2)         fib(2)    fib(1)
+        /     \        /    \       /    \
+  fib(2)   fib(1)  fib(1) fib(0) fib(1) fib(0)
+  /    \
+fib(1) fib(0)
+
+
+
+We can see that the function fib(3) is being called 2 times. If we would have stored the value of fib(3), then instead of computing it again, we could have reused the old stored value.
+
+The time complexity of the recursive solution is exponential. However, we can improve the time complexity by using Dynamic Programming approach and storing the results of the subproblems as shown below:
+
+
+int fib(int n)
+{
+  // Declare an array to store Fibonacci numbers
+  int f[n+2];   // 1 extra to handle case, n = 0
+  int i;
+
+  // 0th and 1st number of the series are 0 and 1
+  f[0] = 0;
+  f[1] = 1;
+
+  for (i = 2; i <= n; i++)
+  {
+      // Add the previous 2 numbers in the series
+      // and store it
+      f[i] = f[i-1] + f[i-2];
+  }
+
+  return f[n];
+}
+The time complexity of the above solution is linear.
+
+
+Properties of a Dynamic Programming Problem
+
+There are two main properties of any problem which identifies a problem that it can be solved using the dynamic programming approach:
+Overlapping Subproblem Property
+Optimal Substructure Property
+
+
+Let us look at each one of these properties in details:
+Overlapping Subproblems: Like Divide and Conquer, Dynamic Programming combines solutions to sub-problems. Dynamic Programming is mainly used when solutions of the same subproblems are needed again and again. In dynamic programming, computed solutions to subproblems are stored in a table so that these don’t have to be recomputed. So Dynamic Programming is not useful when there are no common (overlapping) subproblems because there is no point storing the solutions if they are not needed again. For example, Binary Search doesn’t have common subproblems. If we take an example of following the recursive program for Fibonacci Numbers, there are many subproblems which are solved again and again.
+
+
+/* simple recursive program for Fibonacci numbers */
+int fib(int n)
+{
+   if ( n <= 1 )
+      return n;
+   return fib(n-1) + fib(n-2);
+}
+Recursion tree for execution of fib(5):
+                         fib(5)
+                     /             \
+               fib(4)                fib(3)
+             /      \                /     \
+         fib(3)      fib(2)         fib(2)    fib(1)
+        /     \        /    \       /    \
+  fib(2)   fib(1)  fib(1) fib(0) fib(1) fib(0)
+  /    \
+fib(1) fib(0)
+
+We can see that the function fib(3) is being called 2 times. If we would have stored the value of fib(3), then instead of computing it again, we could have reused the old stored value.
+Optimal Substructure: A given problem has Optimal Substructure Property if an optimal solution of the given problem can be obtained by using optimal solutions of its subproblems. For example, the Shortest Path problem has the following optimal substructure property: If a node x lies in the shortest path from a source node u to destination node v then the shortest path from u to v is combination of shortest path from u to x and shortest path from x to v. The standard All Pair Shortest Path algorithms like Floyd–Warshall and Bellman-Ford are typical examples of Dynamic Programming. On the other hand, the Longest Path problem doesn’t have the Optimal Substructure property. Here, by Longest Path we mean longest simple path (path without cycle) between any two nodes. Consider the following unweighted graph given in the CLRS book. There are two longest paths from q to t: q->r->t and q->s->t. Unlike shortest paths, these longest paths do not have the optimal substructure property. For example, the longest path q->r->t is not a combination of the longest path from q to r and longest path from r to t, because the longest path from q to r is q->s->t->r and the longest path from r to t is r->q->s->t.
+
+
+
+Overlapping Subproblems Property
+
+We had already discussed the basics of Overlapping Subproblems property of a problem that can be solved using Dynamic Programming algorithm. Let us extend our previous example of Fibonacci Number to discuss the overlapping subproblems property in details.
+
+
+
+
+
+
+
+/* simple recursive program for Fibonacci numbers */
+int fib(int n)
+{
+   if ( n <= 1 )
+      return n;
+   return fib(n-1) + fib(n-2);
+}
+Recursion tree for execution of fib(5)
+
+
+
+                         fib(5)
+                     /             \
+               fib(4)                fib(3)
+             /      \                /     \
+         fib(3)      fib(2)         fib(2)    fib(1)
+        /     \        /    \       /    \
+  fib(2)   fib(1)  fib(1) fib(0) fib(1) fib(0)
+  /    \
+fib(1) fib(0)
+
+
+We already discussed how storing results of the subproblems can be effective in reducing the number of calculations or operations to obtain the final result. As in the above recursion tree, we can see that different values like fib(1), fib(0), fib(2) are being calculated more than once. There are two different ways to store the values so that these values can be reused:
+
+
+Memoization (Top Down)
+Tabulation (Bottom Up)
+
+
+Let us look at each one of these in details:
+
+
+Memoization (Top Down): The memoized program for a problem is similar to the recursive version with a small modification that it looks into a lookup table before computing solutions. We initialize a lookup array with all initial values as NIL. Whenever we need the solution to a subproblem, we first look into the lookup table. If the precomputed value is there then we return that value, otherwise, we calculate the value and put the result in the lookup table so that it can be reused later. Following is the memoized version for nth Fibonacci Number.
+
+
+/* C++ program for Memoized version
+   for nth Fibonacci number */
+#include <bits/stdc++.h>
+using namespace std;
+
+#define NIL -1
+#define MAX 100
+
+int lookup[MAX];
+
+/* Function to initialize NIL
+   values in lookup table */
+void _initialize()
+{
+    int i;
+    for (i = 0; i < MAX; i++)
+        lookup[i] = NIL;
+}
+
+/* Function for nth Fibonacci number */
+int fib(int n)
+{
+    if (lookup[n] == NIL)
+    {
+        if (n <= 1)
+            lookup[n] = n;
+        else
+            lookup[n] = fib(n - 1) + fib(n - 2);
+    }
+
+    return lookup[n];
+}
+
+// Driver code
+int main ()
+{
+    int n = 40;
+    _initialize();
+    cout << "Fibonacci number is " << fib(n);
+    return 0;
+}
+Output:
+Fibonacci number is 102334155
+Tabulation (Bottom Up): The tabulated program for a given problem builds a table in bottom up fashion and returns the last entry from table. For example, for the same Fibonacci number, we first calculate fib(0) then fib(1) then fib(2) then fib(3) and so on. So literally, we are building the solutions of subproblems bottom-up. Following is the tabulated version for nth Fibonacci Number.
+
+
+/* C++ program for Tabulated version */
+
+#include<bits/stdc++.h>
+
+int fib(int n)
+{
+    int f[n+1];
+    int i;
+    f[0] = 0;   f[1] = 1;
+
+    for (i = 2; i <= n; i++)
+        f[i] = f[i-1] + f[i-2];
+
+    return f[n];
+}
+
+// Driver Code
+int main ()
+{
+    int n = 9;
+    printf("Fibonacci number is %d ", fib(n));
+    return 0;
+}
+Output:
+Fibonacci number is 34
+
+Both Tabulated and Memoized approaches stores the solutions of subproblems. In Memoized version, the table is filled on demand while in Tabulated version, starting from the first entry, all entries are filled one by one. Unlike the Tabulated version, all entries of the lookup table are not necessarily filled in Memoized version.

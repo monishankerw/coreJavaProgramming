@@ -12,12 +12,10 @@ public class SumOfNotDuplicateElements {
     private static void sumOfWithOutReapetedElements(int[] arr) {
         int sum=0;
         Map<Integer,Integer>map=new HashMap<>();
-        for (int i=0;i<arr.length;i++){
-            if(map.containsKey(arr[i])){
-                map.put(arr[i],map.get(arr[i])+1);
-            }else {
-                map.put(arr[i],1);
-            }
+
+        for (int num:arr){
+            map.put(num,map.getOrDefault(num,0)+1);
+            System.out.println(map);
         }
         for (int key:map.keySet()){
             if (map.get(key)==1){
