@@ -256,28 +256,8 @@ The Java Collections Framework includes several types of collections, each desig
        4. An LinkedList class can acts as a list and queue.
        5. LinkedList better for Manipulation data.
 
-       9. Difference between ArrayList and Vector?
-       ArrayList
-       1. ArrayList gives better Performance.
-       2. non.synchronised.
-       3. non-Thread safe.
-       4. ArrayList can use Iterator for traversing its elements.
 
-       Vector
-       1. poor performance.
-       2. Synchronized.
-       3. Thread safe.
-       4. Vector can use both Enumeration and Iterator for traversing over elements.
 
-       Vector
-       1. The vector can implemets a growable array of objects.
-       2. Vector fall in legacy class.
-       3. java.util package and implement the list interface.
-       4. verctor implements a dynamic array.
-       5. similar to arrayList
-       6. synchronised and thread safe
-       7. maintains insertion order.
-       8. poor performance
 
      */
     /*
@@ -326,8 +306,7 @@ The Java Collections Framework includes several types of collections, each desig
       4. Enumeration
        The Enumeration interface is used with legacy classes like Vector and Hashtable. It's similar to Iterator but does not allow element removal.
 
-       java
-       Copy code
+
        Vector<String> vector = new Vector<>(Arrays.asList("A", "B", "C", "D"));
        Enumeration<String> enumeration = vector.elements();
        while (enumeration.hasMoreElements()) {
@@ -339,8 +318,7 @@ The Java Collections Framework includes several types of collections, each desig
 
        However, if you are looking at cursors in the context of database operations, here's an example using JDBC:
 
-       java
-       Copy code
+
        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "user", "password");
        Statement statement = connection.createStatement();
        ResultSet resultSet = statement.executeQuery("SELECT * FROM mytable");
@@ -602,10 +580,34 @@ The Java Collections Framework includes several types of collections, each desig
 //    All Elements:Elephant
 //    List Elements:[Dog, cat, Elephant]
 
+
+/*    9. Difference between ArrayList and Vector?
+       ArrayList
+       1. ArrayList gives better Performance.
+       2. non.synchronised.
+       3. non-Thread safe.
+       4. ArrayList can use Iterator for traversing its elements.
+
+    Vector
+       1. poor performance.
+       2. Synchronised.
+       3. Thread safe.
+       4. Vector can use both Enumeration and Iterator for traversing over elements.
+
+       Vector
+       1. The vector can implement a growable array of objects.
+       2. Vector falls in legacy class.
+       3. java.util package and implement the list interface.
+       4. vector implements a dynamic array.
+       5. similar to arrayList
+       6. synchronized and thread safe
+       7. maintains insertion order.
+       8. poor performance
+
+
+ */
      //  1. Adding and Accessing Elements:
-
-
-    public static class VectorExample {
+          public static class VectorExample {
         public static void main(String[] args) {
             // Creating a Vector of Integers
             Vector<Integer> vector = new Vector<>();
@@ -614,7 +616,7 @@ The Java Collections Framework includes several types of collections, each desig
             vector.add(10);
             vector.add(20);
             vector.add(30);
-
+            System.out.println(vector);
             // Accessing elements using index
             System.out.println("Element at index 0: " + vector.get(0));
             System.out.println("Element at index 1: " + vector.get(1));
@@ -642,7 +644,7 @@ The Java Collections Framework includes several types of collections, each desig
      //  3. Copying Elements from Another Collection:
 
 
-    public static class VectorExample2 {
+         public static class VectorExample2 {
         public static void main(String[] args) {
             // Creating an ArrayList
             ArrayList<Integer> arrayList = new ArrayList<>();
