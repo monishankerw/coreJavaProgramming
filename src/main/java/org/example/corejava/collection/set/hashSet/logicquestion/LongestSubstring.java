@@ -25,7 +25,7 @@ public class LongestSubstring {
         System.out.println("Length of the longest substring without repeating characters: " + maxLength);
     }
 
-    private int longestSubstring(String str) {
+    public int longestSubstring(String str) {
         /*
  Set<Character> set: This HashSet is used to store characters of the current window.
  It helps in checking whether a character is repeated within the current window.

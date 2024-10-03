@@ -11,7 +11,7 @@ public class CheckDuplicate {
         System.out.println(r);
     }
 
-    private Boolean duplicateCheck(int[] num) {
+    public Boolean duplicateCheck(int[] num) {
         Set<Integer> set=new HashSet<>();
         for (Integer nums:num) {
             if (set.contains(nums)) {

@@ -1,5 +1,8 @@
 package org.example.corejava.collection;
 
+import org.example.corejava.collection.set.hashSet.logicquestion.CheckDuplicate;
+import org.example.corejava.collection.set.hashSet.logicquestion.LongestSubstring;
+
 import java.util.*;
 
 public class CollectionInJava {
@@ -386,6 +389,7 @@ The Java Collections Framework includes several types of collections, each desig
         }//o/p  3 17 6 9 7
 
     }
+
     public static class A2 {
         public static void main(String[] args) {
             ArrayList<Integer> a = new ArrayList<>();
@@ -398,8 +402,8 @@ The Java Collections Framework includes several types of collections, each desig
             a.remove(3);
 
             System.out.println(a);
-            for (int i=0;i<a.size();i++){
-                System.out.println(a.get(i)+" ");
+            for (int i = 0; i < a.size(); i++) {
+                System.out.println(a.get(i) + " ");
             }
         }
     }//op:[0, 1, 2, 3, 4, 5]
@@ -416,15 +420,15 @@ The Java Collections Framework includes several types of collections, each desig
 
     public static class B {
         public static void main(String[] args) {
-            ArrayList<Integer>a=new ArrayList<>();
+            ArrayList<Integer> a = new ArrayList<>();
             a.add(1);
             a.add(4);
             a.add(2);
             a.add(3);
             System.out.println(a);
-            if(a.contains(2)){
+            if (a.contains(2)) {
                 System.out.println("Found");
-            } else{
+            } else {
                 System.out.println("Not found");
             }
         }
@@ -435,61 +439,62 @@ The Java Collections Framework includes several types of collections, each desig
 //    This method returns true if the collection contains the specified elements.
 
 
-   //  5. Reverse An ArrayList
-    public static class  ReverseElements {
+    //  5. Reverse An ArrayList
+    public static class ReverseElements {
         public static void main(String[] args) {
-            ArrayList<Integer>a=new ArrayList<>();
+            ArrayList<Integer> a = new ArrayList<>();
             a.add(4);
             a.add(3);
             a.add(1);
             a.add(2);
-            System.out.println("OriginalList:"+a);
+            System.out.println("OriginalList:" + a);
             Collections.reverse(a);
-            System.out.println("ReverseNumber:"+a);
+            System.out.println("ReverseNumber:" + a);
         }
     }
 //    OriginalList:[4, 3, 1, 2]
 //    ReverseNumber:[2, 1, 3, 4]
 
-          //  6.
+    //  6.
     public static class ComPareElements {
-              public static void main(String[] args) {
-                  ArrayList<Integer> a = new ArrayList<>();
+        public static void main(String[] args) {
+            ArrayList<Integer> a = new ArrayList<>();
 
-                  a.add(4);
-                  a.add(3);
-                  a.add(1);
-                  a.add(2);
-                  a.add(5);
-                  a.add(8);
-                  int min = Collections.min(a);
-                  int max = Collections.max(a);
-                  if (min == max) {
-                      System.out.println("All Elements are Equal");
-                  } else {
-                      System.out.println("Minimum Elements");
-                      System.out.println("max");
-                  }
-              }
-          }
-//    }Minimum Elements
+            a.add(4);
+            a.add(3);
+            a.add(1);
+            a.add(2);
+            a.add(5);
+            a.add(8);
+            int min = Collections.min(a);
+            int max = Collections.max(a);
+            if (min == max) {
+                System.out.println("All Elements are Equal");
+            } else {
+                System.out.println("Minimum Elements");
+                System.out.println("max");
+            }
+        }
+    }
+
+    //    }Minimum Elements
 //    max
-     //  7. WAP to add elements at the specified index in the list using add(index,elements) method.
+    //  7. WAP to add elements at the specified index in the list using add(index,elements) method.
     public static class D {
         public static void main(String[] args) {
-            ArrayList<Integer>a=new ArrayList<>();
+            ArrayList<Integer> a = new ArrayList<>();
             //add method for integer arraylist
             a.add(1);
             a.add(2);
             // index is zero based
-            a.add(1,3);
-            a.add(2,4);
+            a.add(1, 3);
+            a.add(2, 4);
             System.out.println(a);
         }
     }
-     //  [1, 3, 4, 2]
+    //  [1, 3, 4, 2]
 
-          //     8.
+    //     8.
     public static class Student {
         private String name;
         private String rollNo;
@@ -508,30 +513,31 @@ The Java Collections Framework includes several types of collections, each desig
         }
 
         public static void main(String[] args) {
-            ArrayList<Student> a=new ArrayList<>();
-            Student student1=new Student("abc","12");
-            Student student2=new Student("abcd","13");
-            Student student3=new Student("abcde","14");
+            ArrayList<Student> a = new ArrayList<>();
+            Student student1 = new Student("abc", "12");
+            Student student2 = new Student("abcd", "13");
+            Student student3 = new Student("abcde", "14");
             a.add(student1);
             a.add(student2);
             a.add(student3);
-            for (Student C:a){
+            for (Student C : a) {
                 System.out.println(C);
             }
 
 
         }
     }
+
     // 9. WAP to sort ArrayList in descending order.
     public static class DescendingOrder {
         public static void main(String[] args) {
-            ArrayList<String>a=new ArrayList<>();
+            ArrayList<String> a = new ArrayList<>();
             a.add("pqr");
             a.add("mno");
             a.add("abc");
             a.add("str");
             System.out.println(a);//unsorted
-            Collections.sort(a,Collections.reverseOrder());
+            Collections.sort(a, Collections.reverseOrder());
             System.out.println(a);//reverse
         }
     }
@@ -540,37 +546,37 @@ The Java Collections Framework includes several types of collections, each desig
 //    Descending Order::
 //            [str, pqr, mno, abc]
 
-          //  10. WAP to convert List to Array.
+    //  10. WAP to convert List to Array.
     public static class ListToArray {
-              public static void main(String[] args) {
-                  ArrayList<String> a = new ArrayList<>();
-                  a.add("Apple");
-                  a.add("Banana");
-                  a.add("Pear");
-                  a.add("Mango");
-                  String[] str = new String[a.size()];
-                  for (int i = 0; i < a.size(); i++) {
-                      str[i] = a.get(i);
-                  }
-                  for (String s : str) {
-                      System.out.println(s);
-                  }
-              }
-          }
+        public static void main(String[] args) {
+            ArrayList<String> a = new ArrayList<>();
+            a.add("Apple");
+            a.add("Banana");
+            a.add("Pear");
+            a.add("Mango");
+            String[] str = new String[a.size()];
+            for (int i = 0; i < a.size(); i++) {
+                str[i] = a.get(i);
+            }
+            for (String s : str) {
+                System.out.println(s);
+            }
+        }
+    }
 //    }Apple
 //            Banana
 //    Pear
 //            Mango
 
-      // 11.WAP to convert Array to List.
+    // 11.WAP to convert Array to List.
     public static class ArrayToList {
         public static void main(String[] args) {
-            String[] str={"Dog","cat","Elephant"};
-            for (String value:str){
-                System.out.println("All Elements:"+value);
+            String[] str = {"Dog", "cat", "Elephant"};
+            for (String value : str) {
+                System.out.println("All Elements:" + value);
             }
-            ArrayList arrayList=new ArrayList<>(Arrays.asList(str));
-            System.out.println("List Elements:"+arrayList);
+            ArrayList arrayList = new ArrayList<>(Arrays.asList(str));
+            System.out.println("List Elements:" + arrayList);
         }
     }
 
@@ -581,33 +587,33 @@ The Java Collections Framework includes several types of collections, each desig
 //    List Elements:[Dog, cat, Elephant]
 
 
-/*    9. Difference between ArrayList and Vector?
-       ArrayList
-       1. ArrayList gives better Performance.
-       2. non.synchronised.
-       3. non-Thread safe.
-       4. ArrayList can use Iterator for traversing its elements.
+    /*    9. Difference between ArrayList and Vector?
+           ArrayList
+           1. ArrayList gives better Performance.
+           2. non.synchronised.
+           3. non-Thread safe.
+           4. ArrayList can use Iterator for traversing its elements.
 
-    Vector
-       1. poor performance.
-       2. Synchronised.
-       3. Thread safe.
-       4. Vector can use both Enumeration and Iterator for traversing over elements.
+        Vector
+           1. poor performance.
+           2. Synchronised.
+           3. Thread safe.
+           4. Vector can use both Enumeration and Iterator for traversing over elements.
 
-       Vector
-       1. The vector can implement a growable array of objects.
-       2. Vector falls in legacy class.
-       3. java.util package and implement the list interface.
-       4. vector implements a dynamic array.
-       5. similar to arrayList
-       6. synchronized and thread safe
-       7. maintains insertion order.
-       8. poor performance
+           Vector
+           1. The vector can implement a growable array of objects.
+           2. Vector falls in legacy class.
+           3. java.util package and implement the list interface.
+           4. vector implements a dynamic array.
+           5. similar to arrayList
+           6. synchronized and thread safe
+           7. maintains insertion order.
+           8. poor performance
 
 
- */
-     //  1. Adding and Accessing Elements:
-          public static class VectorExample {
+     */
+    //  1. Adding and Accessing Elements:
+    public static class VectorExample {
         public static void main(String[] args) {
             // Creating a Vector of Integers
             Vector<Integer> vector = new Vector<>();
@@ -623,7 +629,7 @@ The Java Collections Framework includes several types of collections, each desig
             System.out.println("Element at index 2: " + vector.get(2));
         }
     }
-      // 2. Vector with Initial Capacity:
+    // 2. Vector with Initial Capacity:
 
     public static class VectorExample3 {
         public static void main(String[] args) {
@@ -641,10 +647,10 @@ The Java Collections Framework includes several types of collections, each desig
             System.out.println("Element at index 2: " + vector.get(2));
         }
     }
-     //  3. Copying Elements from Another Collection:
+    //  3. Copying Elements from Another Collection:
 
 
-         public static class VectorExample2 {
+    public static class VectorExample2 {
         public static void main(String[] args) {
             // Creating an ArrayList
             ArrayList<Integer> arrayList = new ArrayList<>();
@@ -663,8 +669,7 @@ The Java Collections Framework includes several types of collections, each desig
     }
 
 
-
-    public static class VectorExample1{
+    public static class VectorExample1 {
         public static void main(String[] args) {
             // Creating a Vector of Strings
             Vector<String> vector = new Vector<>();
@@ -701,5 +706,374 @@ The Java Collections Framework includes several types of collections, each desig
         }
     }
 
+    /*----------------------------------------------SET-------------------------------------------------------*/
+   /*
+     SET
+       https://www.geeksforgeeks.org/set-in-java/
+          extends            extends                implement
+       set--------->SortedSet---------->NavigableSet----------->TreeSet
+
+
+       Set:
+       ---> HashSet, TreeSet,LinkedHashSet
+       ----> It is an interface
+       ----->java.util package
+       ----->Does not maintain any insertion order
+       ---->Can not allow to duplicate value.
+       ---->Set can store only one null value.
+       ---->Not index based data structure store the data HashCode values.
+
+1. **What is the difference between a List and a Set in Java?
+
+List vs Set
+List:
+1. ArrayList and LinkedList
+2. allow to store duplicate value.
+3. Index based data structure.
+4. List can store any value of null value.
+
+Set
+
+1. HashSet and TreeSet
+2. not allow to store duplicate value.
+3. not index based data structure store the data Hashcode value.
+4. Set can store any one null value.
+
+
+ 2. **Explain the different types of Set implementations in Java.**
+- **Answer**:
+    - **HashSet**: It uses a hash table for storing elements, which makes it faster in accessing elements. It does not maintain the order of elements.
+    - **LinkedHashSet**: It is similar to `HashSet` but maintains the insertion order.
+    - **TreeSet**: It stores elements in sorted order (ascending by default). It is based on a Red-Black tree.
+
+#### 3. **When would you use a Set over a List?**
+- **Answer**: Use a **Set** when you need to ensure that there are no duplicate elements in the collection and order is not a concern (or when you want a specific order, like in `TreeSet`). Use a **List** if you need to maintain duplicates or care about positional access to the elements.
+
+#### 6. **What happens if you try to add a duplicate element to a `Set`?**
+- **Answer**: If you try to add a duplicate element, the `Set` will simply ignore the new element and retain the existing one. No error will be thrown.
+
+#### 7. **Can a `null` element be added to a `Set`?**
+- **Answer**: It depends on the implementation:
+    - **HashSet** and **LinkedHashSet** allow a single `null` element, since they are based on `HashMap`, which allows one `null` key.
+    - **TreeSet** does not allow `null` elements because it tries to sort elements and throws a `NullPointerException` when comparing `null` with other elements.
+
+
+10. **How would you remove duplicate elements from a `List` using a `Set`?**
+- **Answer**: Since `Set` doesn’t allow duplicates,
+you can simply pass the `List` to a `Set` constructor and then convert it back to a `List` if needed.
+
+ */
+
+
+    public static class RemoveDuplicates {
+        public static void main(String[] args) {
+            List<String> list = Arrays.asList("Apple", "Banana", "Apple", "Orange", "Banana");
+            Set<String> set = new HashSet<>(list);  // Removes duplicates
+            List<String> uniqueList = new ArrayList<>(set);  // Converts back to List
+
+            System.out.println(uniqueList); // Output: [Apple, Banana, Orange]
+        }
+
+        public static class A {
+            public static void main(String[] args) {
+                Set<Integer> set = new HashSet<>();
+                set.add(23);
+                set.add(12);
+                set.add(34);
+                set.add(54);
+                System.out.println("HashSet not maintain insertion order:" + set);
+            }
+        }
+
+        public static class B {
+            public static void main(String[] args) {
+                Set<Integer> set = new HashSet<>();
+                set.add(12);
+                set.add(null);
+                set.add(23);
+                set.add(43);
+                set.add(54);
+                set.add(null);
+                System.out.println("HashSet used only one null value: " + set);
+            }
+        }
+
+    }
+    public static class C {
+        public static void main(String[] args) {
+            Set<String> a=new HashSet<>();
+            a.add("India");
+            a.add("Australia");
+            a.add("South Africa");
+            System.out.println(a);
+            a.remove("Australia");
+            System.out.println(a);
+            System.out.println("Iterating over set:");
+            Iterator<String> i=a.iterator();
+            while (i.hasNext())
+                System.out.println(i.hasNext());
+        }
+    }
+    public static class D1 {
+        public static void main(String[] args) {
+            Set<String>set=new HashSet<>();
+            set.add("A");
+            set.add("B");
+            set.add("C");
+            set.add("A");
+            set.add("C");
+            System.out.println("Not allow duplicate Elements:"+set);
+        }
+    }
+    public static class E {
+        public static void main(String[] args) {
+            Set<Integer>a=new HashSet<>(Arrays.asList(1,2,3,4,5,6));
+            Set<Integer>b=new HashSet<>(Arrays.asList(2,3,4,5,7,8));
+            System.out.println("Elements in a: " + a);
+            System.out.println("Elements in b: " + b);
+
+            //union
+            Set<Integer>union=new HashSet<>(a);
+            union.addAll(b);
+            System.out.println("UNION:"+union);
+
+            //intersection
+            Set<Integer>intersection=new HashSet<>(a);
+            intersection.retainAll(b);
+            System.out.println("intersection:"+intersection);
+
+            //SYMMETRIC DIFFERENCE
+            Set<Integer>symmetricDifference=new HashSet<>(union);
+            symmetricDifference.removeAll(intersection);
+            System.out.println("symmetricDifference:"+symmetricDifference);
+
+
+
+
+        }
+    }
+
+    /*
+    _________________________
+HashSet vs LinkedHashSet
+
+HashSet
+1. HashSet does not maintain insertion order.
+2. HashSet internally map HashMap.
+
+LinkedHashSet
+1. LinkedHashSet maintain insertion order.
+2. LinkedHashSet internally map LinkedHashMap.
+
+Q. How to HashSet internally work?
+Internally, it uses a HashMap to store its elements.
+     1. The HashSet uses a HashMap internally where each element is stored as a key with a constant dummy value.
+     2. The hash code of an element determines the index of the bucket where it will be stored.
+     3. Collisions are handled by using linked lists or balanced trees within the buckets.
+     4. Before adding a new element, HashSet checks for duplicates using the equals() method to ensure all elements are unique.
+
+
+
+  **HashSet Internals:**
+
+     1. **Hash Table Structure**:
+        - **HashSet** uses a hash table to store elements.
+        - Internally, it’s backed by a `HashMap`, where each element is stored as a key in the `HashMap`.
+
+     2. **Hash Code**:
+        - When you add an element to a `HashSet`, its `hashCode()` method is called to compute a hash value.
+        - This hash value determines the bucket index where the element will be stored.
+
+     3. **Buckets**:
+        - The hash table consists of an array of buckets (or slots).
+        - Each bucket can hold a linked list of elements (or a balanced tree in case of many collisions).
+
+     4. **Collision Handling**:
+        - If two elements hash to the same bucket, they are stored in a linked list within that bucket.
+        - From Java 8 onwards, if a bucket contains many elements, the linked list may be converted to a balanced tree for better performance.
+
+     5. **Equality Check**:
+        - To ensure no duplicates, `HashSet` uses the `equals()` method to check if the new element is already present in the bucket.
+
+     ### Diagram
+
+     Here’s a simplified diagram illustrating how a `HashSet` is organized:
+
+     ```
+     HashSet
+       |
+       |-- Hash Table (Array of Buckets)
+             |
+             |-- Bucket 0
+             |     |
+             |     |-- [Element1, Element2] (Linked List or Tree)
+             |
+             |-- Bucket 1
+             |     |
+             |     |-- [Element3] (Single Element)
+             |
+             |-- Bucket 2
+                   |
+                   |-- [Element4, Element5] (Linked List or Tree)
+
+
+     */
+   public static class Person {
+        private int id;
+        private String name;
+
+        public Person(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(id, name);
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null || getClass() != obj.getClass()) return false;
+            Person person = (Person) obj;
+            return id == person.id && Objects.equals(name, person.name);
+        }
+
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    '}';
+        }
+    }
+
+    public static class HashSetDemo {
+        public static void main(String[] args) {
+            Set<Person> set = new HashSet<>();
+
+            Person p1 = new Person(1, "Alice");
+            Person p2 = new Person(2, "Bob");
+            Person p3 = new Person(1, "Alice"); // Duplicate
+
+            set.add(p1);
+            set.add(p2);
+            set.add(p3); // Will not be added
+
+            System.out.println(set); // Output: [Person{id=1, name='Alice'}, Person{id=2, name='Bob'}]
+        }
+    }
+
+    public static class CheckDuplicate {
+        public static void main(String[] args) {
+            org.example.corejava.collection.set.hashSet.logicquestion.CheckDuplicate checkDuplicate=new org.example.corejava.collection.set.hashSet.logicquestion.CheckDuplicate();
+            int num[]={1,2,3,4,1};
+            Boolean r =checkDuplicate.duplicateCheck(num);
+            System.out.println(r);
+        }
+
+        private Boolean duplicateCheck(int[] num) {
+            Set<Integer> set=new HashSet<>();
+            for (Integer nums:num) {
+                if (set.contains(nums)) {
+                    return true;
+                }
+                set.add(nums);
+            }
+            return false;
+        }
+    }
+
+    /*
+ Longest Substring Without
+Repeating Characters
+Given a string s, find the length of the longest
+substring without repeating characters.
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc"
+, with a length of 3.
+ */
+
+
+
+
+    public static class LongestSubstring {
+        public static void main(String[] args) {
+            org.example.corejava.collection.set.hashSet.logicquestion.LongestSubstring longestSubstring = new org.example.corejava.collection.set.hashSet.logicquestion.LongestSubstring();
+            String str = "abcabcbb";
+            int maxLength = longestSubstring.longestSubstring(str);
+            System.out.println("Length of the longest substring without repeating characters: " + maxLength);
+        }
+
+        private int longestSubstring(String str) {
+        /*
+ Set<Character> set: This HashSet is used to store characters of the current window.
+ It helps in checking whether a character is repeated within the current window.
+int left: This pointer indicates the start of the current window of characters.
+int right: This pointer indicates the end of the current window of characters (inclusive).
+int maxLength: This variable keeps track of the maximum length of substrings found that do not contain repeating characters.
+
+         */
+            Set<Character> set = new HashSet<>();
+            int left = 0, right = 0, maxLength = 0;
+
+        /*
+        This loop continues as long as right is within the bounds of the string.
+         The right pointer expands the window to include new characters.
+         */
+            while (right < str.length()) {
+
+            /*
+            If the character at the right pointer is not already in the set,
+            it means the current substring is still unique.
+            The character can be added to the current window.
+             */
+                if (!set.contains(str.charAt(right))) {
+                    set.add(str.charAt(right));
+                    right++;
+                    maxLength = Math.max(maxLength, right - left);
+
+
+                /*
+                If the character at the right pointer is already in the set (i.e., the window contains a duplicate character):
+set.remove(str.charAt(left)): Remove the character at the left pointer from the set. This is because the left pointer will move to the right, effectively shrinking the window from the left side.
+left++: Move the left pointer to the right to shrink the window and remove the duplicate character, ensuring the substring is unique.
+                 */
+                } else {
+                    set.remove(str.charAt(left));
+                    left++;
+                }
+            }
+            return maxLength;
+        }
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
