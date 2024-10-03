@@ -27,6 +27,7 @@ class Solution {
                 row.add(1);
             }
 
+
             // Add the current row to the result
             result.add(row);
         }
