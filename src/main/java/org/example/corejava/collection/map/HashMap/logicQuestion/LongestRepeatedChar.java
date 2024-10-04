@@ -28,7 +28,7 @@ public class LongestRepeatedChar {
         System.out.println(maxLength); // Print the length of the longest substring
     }
 
-    private int longestRepCha(String str, int k) {
+    public int longestRepCha(String str, int k) {
         Map<Character, Integer> countMap = new HashMap<>();
         int maxCount = 0;
         int left = 0;

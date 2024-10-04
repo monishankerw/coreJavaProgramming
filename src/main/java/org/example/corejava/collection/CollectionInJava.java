@@ -1,7 +1,9 @@
 package org.example.corejava.collection;
 
-import org.example.corejava.collection.set.hashSet.logicquestion.CheckDuplicate;
-import org.example.corejava.collection.set.hashSet.logicquestion.LongestSubstring;
+
+
+import org.example.corejava.collection.map.HashMap.logicQuestion.*;
+import org.example.corejava.comparableAndComparator.Employee;
 
 import java.util.*;
 
@@ -799,9 +801,10 @@ you can simply pass the `List` to a `Set` constructor and then convert it back t
         }
 
     }
+
     public static class C {
         public static void main(String[] args) {
-            Set<String> a=new HashSet<>();
+            Set<String> a = new HashSet<>();
             a.add("India");
             a.add("Australia");
             a.add("South Africa");
@@ -809,45 +812,45 @@ you can simply pass the `List` to a `Set` constructor and then convert it back t
             a.remove("Australia");
             System.out.println(a);
             System.out.println("Iterating over set:");
-            Iterator<String> i=a.iterator();
+            Iterator<String> i = a.iterator();
             while (i.hasNext())
                 System.out.println(i.hasNext());
         }
     }
+
     public static class D1 {
         public static void main(String[] args) {
-            Set<String>set=new HashSet<>();
+            Set<String> set = new HashSet<>();
             set.add("A");
             set.add("B");
             set.add("C");
             set.add("A");
             set.add("C");
-            System.out.println("Not allow duplicate Elements:"+set);
+            System.out.println("Not allow duplicate Elements:" + set);
         }
     }
+
     public static class E {
         public static void main(String[] args) {
-            Set<Integer>a=new HashSet<>(Arrays.asList(1,2,3,4,5,6));
-            Set<Integer>b=new HashSet<>(Arrays.asList(2,3,4,5,7,8));
+            Set<Integer> a = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+            Set<Integer> b = new HashSet<>(Arrays.asList(2, 3, 4, 5, 7, 8));
             System.out.println("Elements in a: " + a);
             System.out.println("Elements in b: " + b);
 
             //union
-            Set<Integer>union=new HashSet<>(a);
+            Set<Integer> union = new HashSet<>(a);
             union.addAll(b);
-            System.out.println("UNION:"+union);
+            System.out.println("UNION:" + union);
 
             //intersection
-            Set<Integer>intersection=new HashSet<>(a);
+            Set<Integer> intersection = new HashSet<>(a);
             intersection.retainAll(b);
-            System.out.println("intersection:"+intersection);
+            System.out.println("intersection:" + intersection);
 
             //SYMMETRIC DIFFERENCE
-            Set<Integer>symmetricDifference=new HashSet<>(union);
+            Set<Integer> symmetricDifference = new HashSet<>(union);
             symmetricDifference.removeAll(intersection);
-            System.out.println("symmetricDifference:"+symmetricDifference);
-
-
+            System.out.println("symmetricDifference:" + symmetricDifference);
 
 
         }
@@ -918,7 +921,7 @@ Internally, it uses a HashMap to store its elements.
 
 
      */
-   public static class Person {
+    public static class Person {
         private int id;
         private String name;
 
@@ -967,15 +970,15 @@ Internally, it uses a HashMap to store its elements.
 
     public static class CheckDuplicate {
         public static void main(String[] args) {
-            org.example.corejava.collection.set.hashSet.logicquestion.CheckDuplicate checkDuplicate=new org.example.corejava.collection.set.hashSet.logicquestion.CheckDuplicate();
-            int num[]={1,2,3,4,1};
-            Boolean r =checkDuplicate.duplicateCheck(num);
+            org.example.corejava.collection.set.hashSet.logicquestion.CheckDuplicate checkDuplicate = new org.example.corejava.collection.set.hashSet.logicquestion.CheckDuplicate();
+            int num[] = {1, 2, 3, 4, 1};
+            Boolean r = checkDuplicate.duplicateCheck(num);
             System.out.println(r);
         }
 
         private Boolean duplicateCheck(int[] num) {
-            Set<Integer> set=new HashSet<>();
-            for (Integer nums:num) {
+            Set<Integer> set = new HashSet<>();
+            for (Integer nums : num) {
                 if (set.contains(nums)) {
                     return true;
                 }
@@ -995,8 +998,6 @@ Output: 3
 Explanation: The answer is "abc"
 , with a length of 3.
  */
-
-
 
 
     public static class LongestSubstring {
@@ -1050,7 +1051,727 @@ left++: Move the left pointer to the right to shrink the window and remove the d
         }
     }
 
+    /*
+    Count the number of distinct substrings
+     */
+    public static class CountNumber {
+        public static void main(String[] args) {
+            String str = "banana";
+            Set<String> set = new HashSet<>();
+            for (int i = 0; i < str.length(); i++) {
+                for (int j = i + 1; j < str.length(); j++) {
+                    set.add(str.substring(i, j));
+                }
+            }
+            System.out.println(set.size());
+
+
+        }
+    }
+
+    /*-----------------------------------------COMPARATOR AND COMPARABLE-------------------------------------------------------------- */
+/*
+    Comparable Vs Comparator.
+
+            Comparable:
+    Comparable is technique used to sorted anyone parameter.
+    java.lang.package
+    one method - compareTo()
+    Drawback not sort multiple parameter same program.
+
+            Comparator:
+    If you want multiple sorting used comparator.
+            java.util package
+    Two method
+    compare()
+    equals()
+
+ */
+    public static class Employee implements Comparable<Employee> {
+        private int id;
+        private String name;
+        private int salary;
+
+        public Employee(int id, String name, int salary) {
+            this.id = id;
+            this.name = name;
+            this.salary = salary;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getSalary() {
+            return salary;
+        }
+
+        public void setSalary(int salary) {
+            this.salary = salary;
+        }
+
+        @Override
+        public String toString() {
+            return "Employee{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", salary=" + salary +
+                    '}';
+        }
+
+        @Override
+        public int compareTo(Employee o) {
+            return this.id - o.id;
+        }
+
+        public static void main(String[] args) {
+            List<Employee> list = new ArrayList<>();
+            list.add(new Employee(101, "Mani", 122222));
+            list.add(new Employee(102, "Shanker", 111111));
+            list.add(new Employee(103, "Test", 22222));
+
+            // Sorting by ID (natural ordering)
+            Collections.sort(list);
+            System.out.println("Sorted by ID:");
+            for (Employee e : list) {
+                System.out.println(e);
+            }
+
+            // Sorting by Name using Comparator
+            Collections.sort(list, new Comparator<Employee>() {
+                @Override
+                public int compare(Employee e1, Employee e2) {
+                    return e1.getName().compareTo(e2.getName());
+                }
+            });
+
+            System.out.println("\nSorted by Name:");
+            for (Employee e : list) {
+                System.out.println(e);
+            }
+
+            // Sorting by Salary using Comparator
+            Collections.sort(list, new Comparator<Employee>() {
+                @Override
+                public int compare(Employee e1, Employee e2) {
+                    return Integer.compare(e1.getSalary(), e2.getSalary());
+                }
+            });
+
+            System.out.println("\nSorted by Salary:");
+            for (Employee e : list) {
+                System.out.println(e);
+            }
+        }
+    }
+    /*---------------------------------------------MAP------------------------------------------------------ */
+/*
+    1. Describe Map interfaces
+                              Map<K,V> (Interface)
+                               |
+        ------------------------------------------------
+        |                                               |
+  SortedMap<K,V> (Interface)                    HashMap<K,V> (Class)
+        |                                               |
+ NavigableMap<K,V> (Interface)                LinkedHashMap<K,V> (Class)
+        |
+   TreeMap<K,V> (Class)
+
+            Map<K,V>:
+             1. It is an Interface.
+             2. It is not part of collection framework
+             3. key-value pairs(store data).
+             4. injected the data into table using Hashing technique.
+             5. not synchronized and not thread safe.
+             6. implement Hashmap, TreeMap,LinkedHashMap
+             6. HashMap does not allow duplicate key and allows duplicate value.
+             7. It provides basic operation like
+             adding-add()
+             removing-remove()
+             searching-get()
+
+      2.  How does HashMap internally work?
+              -> HashMap internally work HashTable.
+              HashMap<String,Integer>map=new HashMap<>();
+              map.put("xyz(key)",32(value));
+              ->HashMap replaced LinkedList with a binary tree when the  number of elements in bucket reduced certain threshold.
+              ->While converting the list to binary tree hash code is used as a branch variable.
+
+              IC=16;
+              LF=0.75
+              Hashing tech=IC*LF=16*0.75=12
+              12th pair of HashMap its caplacity will become 32.
+
+              https://www.geeksforgeeks.org/internal-working-of-hashmap-java/
+
+      3. Explain the concept of hashing and how keys are stored in a HashMap.
+
+         4. What is the difference between HashMap and Hashtable?
+             HashMap:
+              1. not-synchronized,not-thread safe(better performance),allows null for both key and value,non-legacy,jdk1.2 version
+              HashTable:
+              synchronised,ThreadSafe(poorPerformance),not allow for both key and values, legacy,jdk1.1 version
+
+    Q. Difference between HashMap and HashSet.
+              hashMap:
+              key-value pair,allow duplicate value,put(k,v),2 object required
+              HashSet:
+              only key,not allow duplicate value,add(obj),1 object required
+      5. What is a ConcurrentHashMap?
+      6. How does it differ from a regular HashMap?
+      7. How do they relate to WeakHashMap?
+      8. How would you iterate over a Map in Java?
+      9. Explain different ways to iterate over key-value pairs in a Map.
+      10. What is the internal data structure of a HashMap?
+      11. How does it impact the performance of a HashMap?
+      12. Explain IdentityHashMap and its use cases.
+
+
+ */
+//    HashTable:
+//            ->Synchronized, ThreadSafe
+//              ->store the contains as key value pairs.
+//              ->The HashTable class implemets a hashTable,Which keys to values.
+//            ->Any non-null object can be used as akey or as a value.
+//    https://www.geeksforgeeks.org/how-hashtable-works-internally-in-java/
+//
+//    How to internally work hAshTable?
+//    Initial size of HashTable is 16 and Load ratio is 75%,out of 16, 12 elements injected into the 16, the size of table automatically double.
+
+//    public static class A3{
+//        public static void main(String[] args) {
+//            HashTable<Integer,String>h=new HashTable<>();
+//            h.put(100,"abc");
+//            h.put(101,"dbc");
+//            sout(h);
+//
+//        }
+//    }
+//    public class Student {
+//        public static void main(String[] args) {
+//            Map<Integer, String> studentMap=new HashMap<>();
+//            studentMap.put(100,"abc");
+//            studentMap.put(100,"mbc");
+//            System.out.println(studentMap);
+//            System.out.println(studentMap.get(102));
+//            System.out.println(studentMap.values());
+//            System.out.println(studentMap.keySet());
+//        }
+//
+//    }
+    //  1. FrequencyOfElements occurrence
+
+    public static class FrequencyCount {
+        public static void main(String[] args) {
+            int[] arr={1,2,3,4,1,2,3,1,2,1};
+            Map<Integer,Integer> freqCount=freqCount(arr);
+            System.out.println(freqCount);
+        }
+
+        private static Map<Integer, Integer> freqCount(int[] arr) {
+            Map<Integer,Integer>map=new HashMap<>();
+            for(int num:arr){
+                map.put(num,map.getOrDefault(num,0)+1);
+            }
+            return map;
+        }
+    }
+    public static class AnagramCheck {
+        public static void main(String[] args) {
+            AnagramCheck check = new AnagramCheck();
+            String s1 = "anagram";
+            String t1 = "nagaram";
+            System.out.println(check.isAnagram(s1, t1)); // Output: true
+
+            String s2 = "rat";
+            String t2 = "car";
+            System.out.println(check.isAnagram(s2, t2)); // Output: false
+        }
+
+        public boolean isAnagram(String s, String t) {
+            if (s.length() != t.length()) return false;
+
+            Map<Character, Integer> countMapS = new HashMap<>();
+            Map<Character, Integer> countMapT = new HashMap<>();
+
+            for (char c : s.toCharArray()) {
+                countMapS.put(c, countMapS.getOrDefault(c, 0) + 1);
+            }
+
+            for (char c : t.toCharArray()) {
+                countMapT.put(c, countMapT.getOrDefault(c, 0) + 1);
+            }
+
+            return countMapS.equals(countMapT);
+        }
+    }
+    public static class ComputeTotalEarnings {
+        public static Map<Integer, Double> computeTotalEarnings(Map<Integer, Double> map1, Map<Integer, Double> map2) {
+            // Create a new map to store total earnings
+            Map<Integer, Double> totalEarningsMap = new HashMap<>();
+
+            // Iterate over entries in map1 (assuming map1 and map2 have the same keys)
+            for (Map.Entry<Integer, Double> entry : map1.entrySet()) {
+                Integer employeeId = entry.getKey();
+                Double salary = entry.getValue();
+                Double bonus = map2.getOrDefault(employeeId, 0.0); // Get bonus from map2 or default to 0.0
+
+                // Compute total earnings
+                Double totalEarnings = salary + bonus;
+
+                // Store in totalEarningsMap
+                totalEarningsMap.put(employeeId, totalEarnings);
+            }
+
+            return totalEarningsMap;
+        }
+
+        public static void main(String[] args) {
+            // Example maps
+            Map<Integer, Double> map1 = new HashMap<>();
+            map1.put(1, 5000.0);
+            map1.put(2, 6000.0);
+            map1.put(3, 7000.0);
+
+            Map<Integer, Double> map2 = new HashMap<>();
+            map2.put(1, 1000.0);
+            map2.put(3, 1500.0);
+            map2.put(4, 2000.0);
+
+            // Compute total earnings
+            Map<Integer, Double> totalEarningsMap = computeTotalEarnings(map1, map2);
+
+            // Print total earnings map
+            System.out.println("Total Earnings Map:");
+            for (Map.Entry<Integer, Double> entry : totalEarningsMap.entrySet()) {
+                System.out.println("Employee ID: " + entry.getKey() + ", Total Earnings: " + entry.getValue());
+            }
+        }
+    }
+    public static class EncodeDecodeStrings {
+        // Delimiter to separate the strings in the encoded format
+        private static final String DELIMITER = ":;";
+
+        public static void main(String[] args) {
+            org.example.corejava.collection.map.HashMap.logicQuestion.EncodeDecodeStrings eds = new org.example.corejava.collection.map.HashMap.logicQuestion.EncodeDecodeStrings();
+            List<String> input = List.of("lint", "code", "love", "you");
+            String encoded = eds.encode(input);
+            System.out.println("Encoded: " + encoded);
+
+            List<String> decoded = eds.decode(encoded);
+            System.out.println("Decoded: " + decoded);
+        }
+
+        // Encodes a list of strings into a single string
+        public String encode(List<String> strs) {
+            StringBuilder sb = new StringBuilder();
+            for (String str : strs) {
+                sb.append(str).append(DELIMITER);
+            }
+            return sb.toString();
+        }
+
+        // Decodes a single string back into a list of strings
+        public List<String> decode(String s) {
+            List<String> result = new ArrayList<>();
+            int start = 0;
+            int end;
+
+            while ((end = s.indexOf(DELIMITER, start)) != -1) {
+                result.add(s.substring(start, end));
+                start = end + DELIMITER.length();
+            }
+
+            // Add the last segment (or handle the case where the string is empty)
+            if (start < s.length()) {
+                result.add(s.substring(start));
+            }
+
+            return result;
+        }
+    }
+
+    public static class FirstNonRepeating {
+        public static int firstNonRepeating(int[] nums) {
+            // HashMap to store frequency of each number
+            Map<Integer, Integer> frequencyMap = new HashMap<>();
+
+            // Populate the frequency map
+            for (int num : nums) {
+                frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+            }
+
+            // Find the first non-repeating number
+            for (int i = 0; i < nums.length; i++) {
+                if (frequencyMap.get(nums[i]) == 1) {
+                    return i;
+                }
+            }
+
+            // If no non-repeating number found, return -1
+            return -1;
+        }
+
+        public static void main(String[] args) {
+            int[] nums1 = {2, 3, 4, 2, 4};
+            int[] nums2 = {3, 5, 3, 5, 2, 4, 4,2};
+
+            System.out.println("First non-repeating index in nums1: " + firstNonRepeating(nums1)); // Output: 1
+            System.out.println("First non-repeating index in nums2: " + firstNonRepeating(nums2)); // Output: 0
+        }
+    }
+    public static class GroupAnagrams {
+        public static void main(String[] args) {
+            org.example.corejava.collection.map.HashMap.logicQuestion.GroupAnagrams groupAnagrams = new org.example.corejava.collection.map.HashMap.logicQuestion.GroupAnagrams();
+            String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+            List<List<String>> result = groupAnagrams.groupAnagrams(strs);
+            System.out.println(result);
+        }
+
+        public List<List<String>> groupAnagrams(String[] strs) {
+            Map<String, List<String>> anagramMap = new HashMap<>();
+
+            for (String str : strs) {
+                char[] charArray = str.toCharArray();
+                Arrays.sort(charArray);
+                String sortedStr = new String(charArray);
+
+                if (!anagramMap.containsKey(sortedStr)) {
+                    anagramMap.put(sortedStr, new ArrayList<>());
+                }
+
+                anagramMap.get(sortedStr).add(str);
+            }
+
+            return new ArrayList<>(anagramMap.values());
+        }
+    }
+
+    public static class LongestRepeatedChar {
+        public static void main(String[] args) {
+            org.example.corejava.collection.map.HashMap.logicQuestion.LongestRepeatedChar longestRepeatedChar = new org.example.corejava.collection.map.HashMap.logicQuestion.LongestRepeatedChar();
+            String str = "ABAB";
+            int k = 2;
+            int maxLength = longestRepeatedChar.longestRepCha(str, k);
+            System.out.println(maxLength); // Print the length of the longest substring
+        }
+
+        private int longestRepCha(String str, int k) {
+            Map<Character, Integer> countMap = new HashMap<>();
+            int maxCount = 0;
+            int left = 0;
+            int maxLength = 0;
+
+            for (int right = 0; right < str.length(); right++) { // Fixed variable name from s to str
+                char currentChar = str.charAt(right);
+                countMap.put(currentChar, countMap.getOrDefault(currentChar, 0) + 1);
+
+                maxCount = Math.max(maxCount, countMap.get(currentChar));
+
+                // Window size is (right - left + 1)
+                // Number of characters to replace is (window size - count of the most frequent character)
+                if (right - left + 1 - maxCount > k) {
+                    char leftChar = str.charAt(left);
+                    countMap.put(leftChar, countMap.get(leftChar) - 1);
+                    left++;
+                }
+
+                maxLength = Math.max(maxLength, right - left + 1);
+            }
+
+            return maxLength;
+        }
+    }
+
+    public static class MinimumWindowSubstring {
+        public static void main(String[] args) {
+            org.example.corejava.collection.map.HashMap.logicQuestion.MinimumWindowSubstring solution = new org.example.corejava.collection.map.HashMap.logicQuestion.MinimumWindowSubstring();
+            String s = "ADOBECODEBANC";
+            String t = "ABC";
+            String result = solution.minWindow(s, t);
+            System.out.println(result); // Output: "BANC"
+        }
+
+        public String minWindow(String s, String t) {
+            if (s.length() < t.length()) return "";
+
+            Map<Character, Integer> requiredCount = new HashMap<>();
+            for (char c : t.toCharArray()) {
+                requiredCount.put(c, requiredCount.getOrDefault(c, 0) + 1);
+            }
+
+            Map<Character, Integer> windowCount = new HashMap<>();
+            int left = 0, right = 0, formed = 0;
+            int minLength = Integer.MAX_VALUE;
+            String minWindow = "";
+
+            while (right < s.length()) {
+                char c = s.charAt(right);
+                windowCount.put(c, windowCount.getOrDefault(c, 0) + 1);
+
+                if (requiredCount.containsKey(c) &&
+                        windowCount.get(c).intValue() == requiredCount.get(c).intValue()) {
+                    formed++;
+                }
+
+                while (left <= right && formed == requiredCount.size()) {
+                    c = s.charAt(left);
+
+                    if (right - left + 1 < minLength) {
+                        minLength = right - left + 1;
+                        minWindow = s.substring(left, right + 1);
+                    }
+
+                    windowCount.put(c, windowCount.get(c) - 1);
+                    if (requiredCount.containsKey(c) &&
+                            windowCount.get(c).intValue() < requiredCount.get(c).intValue()) {
+                        formed--;
+                    }
+
+                    left++;
+                }
+
+                right++;
+            }
+
+            return minWindow;
+        }
+    }
+    public static class MostFrequentElements {
+        public static List<Integer> findMostFrequentElements(int[] nums) {
+            // HashMap to store frequency of each number
+            Map<Integer, Integer> frequencyMap = new HashMap<>();
+
+            // Populate the frequency map
+            for (int num : nums) {
+                frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+            }
+
+            // Find the maximum frequency
+            int maxFrequency = 0;
+            for (int count : frequencyMap.values()) {
+                if (count > maxFrequency) {
+                    maxFrequency = count;
+                }
+            }
+
+            // Collect all elements with maximum frequency
+            List<Integer> result = new ArrayList<>();
+            for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+                if (entry.getValue() == maxFrequency) {
+                    result.add(entry.getKey());
+                }
+            }
+
+            return result;
+        }
+
+        public static void main(String[] args) {
+            int[] nums1 = {1, 2, 3, 2, 2, 3, 4, 1, 5};
+            int[] nums2 = {3, 1, 2, 2, 3, 4, 4, 2, 5,3};
+
+            System.out.println("Most frequent elements in nums1: " + findMostFrequentElements(nums1)); // Output: [2]
+            System.out.println("Most frequent elements in nums2: " + findMostFrequentElements(nums2)); // Output: [2, 3]
+        }
+    }
+
+    public static class TwoSum {
+        public int[] twoSum(int[] nums, int target) {
+            Map<Integer, Integer> numMap = new HashMap<>();
+
+            for (int i = 0; i < nums.length; i++) {
+                int diff = target - nums[i];
+
+                if (numMap.containsKey(diff)) {
+                    return new int[] { numMap.get(diff), i };
+                }
+
+                numMap.put(nums[i], i);
+            }
+
+            throw new IllegalArgumentException("No two sum solution found");
+        }
+
+        public static void main(String[] args) {
+            org.example.corejava.collection.map.HashMap.logicQuestion.TwoSum solution = new org.example.corejava.collection.map.HashMap.logicQuestion.TwoSum();
+            int[] nums = {2, 7, 11, 15};
+            int target = 9;
+            int[] result = solution.twoSum(nums, target);
+
+            System.out.println("Indices: [" + result[0] + ", " + result[1] + "]");
+        }
+    }
+    public static class ValidBrackets {
+        public static void main(String[] args) {
+            org.example.corejava.collection.map.HashMap.logicQuestion.ValidBrackets vb = new org.example.corejava.collection.map.HashMap.logicQuestion.ValidBrackets();
+            String s1 = "()";
+            String s2 = "()[]{}";
+            String s3 = "(]";
+            String s4 = "([)]";
+            String s5 = "{[]}";
+
+            System.out.println(vb.isValid(s1)); // Output: true
+            System.out.println(vb.isValid(s2)); // Output: true
+            System.out.println(vb.isValid(s3)); // Output: false
+            System.out.println(vb.isValid(s4)); // Output: false
+            System.out.println(vb.isValid(s5)); // Output: true
+        }
+
+        public boolean isValid(String s) {
+            Stack<Character> stack = new Stack<>();
+            // Map to store matching pairs
+
+            Map<Character, Character> matchingBrackets = new HashMap<>();
+            matchingBrackets.put(')', '(');
+            matchingBrackets.put('}', '{');
+            matchingBrackets.put(']', '[');
+
+            for (char c : s.toCharArray()) {
+                if (matchingBrackets.containsValue(c)) {
+                    // If it's an opening bracket, push onto stack
+                    stack.push(c);
+                } else if (matchingBrackets.containsKey(c)) {
+                    // If it's a closing bracket, check the stack
+                    if (stack.isEmpty() || stack.pop() != matchingBrackets.get(c)) {
+                        return false;
+                    }
+                }
+            }
+
+            // Check if stack is empty
+            return stack.isEmpty();
+        }
+    }
+
+    //TreeMap
+    public static class A5 {
+        public static void main(String[] args) {
+            // Create a TreeMap instance
+            Map<Integer, String> x = new TreeMap<>();
+
+            // Put some key-value pairs into the TreeMap
+            x.put(2, "B");
+            x.put(3, "C");
+            x.put(1, "A");
+            // Not Thread Safe and Not Synchronized:
+            // Print the TreeMap, which will be sorted by keys in ascending order
+            System.out.println(x); // Output: {1=A, 2=B, 3=C}
+
+            // Demonstrate that TreeMap does not allow null keys
+            try {
+                x.put(null, "D");
+            } catch (NullPointerException e) {
+                System.out.println("TreeMap does not allow null keys."); // Output: TreeMap does not allow null keys.
+            }
+
+            // Demonstrate that TreeMap allows multiple null values
+            x.put(4, null);
+            x.put(5, null);
+            System.out.println(x); // Output: {1=A, 2=B, 3=C, 4=null, 5=null}
+
+
+
+            // Demonstrate entrySet method
+            for (Map.Entry<Integer, String> entry : x.entrySet()) {
+                System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+            }
+        }
+    }
+
+/*
+In an interview, you can explain the above `TreeMap` code with key concepts and possible questions related to it. Here's how you can break it down:
+
+### 1. **Introduction to TreeMap**
+   - **What is TreeMap?**
+     TreeMap is a part of Java's `java.util` package. It implements the `Map` interface and stores key-value pairs in a sorted order based on the natural ordering of the keys (ascending by default) or according to a custom `Comparator` provided at map creation time.
+
+   - **Key points about TreeMap:**
+     - The keys are **sorted** in ascending order.
+     - TreeMap **does not allow null keys**, which will throw a `NullPointerException`.
+     - It **allows null values**.
+     - It is **not thread-safe**, so it must be externally synchronized if used in a concurrent environment.
+
+### 2. **Code Walkthrough**
+   - You can explain each part of the code to demonstrate your understanding of `TreeMap`.
+
+#### a. **TreeMap Initialization**
+   ```java
+   Map<Integer, String> x = new TreeMap<>();
+   ```
+   - This creates a new `TreeMap` instance with `Integer` as the key and `String` as the value.
+   - **Interview question**: Why do we use TreeMap instead of HashMap?
+     - TreeMap automatically orders its keys, while HashMap doesn’t guarantee any order. If sorting is required, TreeMap is preferred.
+
+#### b. **Adding Key-Value Pairs**
+   ```java
+   x.put(2, "B");
+   x.put(3, "C");
+   x.put(1, "A");
+   ```
+   - **Explanation**: When we add key-value pairs, the `TreeMap` automatically sorts the keys in ascending order.
+   - **Interview question**: What is the time complexity of inserting a key-value pair in a TreeMap?
+     - Insertion in a `TreeMap` takes **O(log n)** time due to the underlying Red-Black Tree data structure.
+
+#### c. **Null Key Behavior**
+   ```java
+   try {
+       x.put(null, "D");
+   } catch (NullPointerException e) {
+       System.out.println("TreeMap does not allow null keys.");
+   }
+   ```
+   - **Explanation**: TreeMap does not allow null keys and throws `NullPointerException` when you attempt to insert one.
+   - **Interview question**: Why does TreeMap not allow null keys?
+     - Null keys would violate the natural ordering of keys since null cannot be compared to other objects. TreeMap uses `compareTo()` or `Comparator.compare()` to order keys.
+
+#### d. **Null Value Behavior**
+   ```java
+   x.put(4, null);
+   x.put(5, null);
+   System.out.println(x);
+   ```
+   - **Explanation**: TreeMap allows multiple null values, but keys must still be unique.
+   - **Interview question**: Can a TreeMap have null values?
+     - Yes, `TreeMap` allows null values, but only for non-null keys.
+
+#### e. **Entry Set Iteration**
+   ```java
+   for (Map.Entry<Integer, String> entry : x.entrySet()) {
+       System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+   }
+   ```
+   - **Explanation**: You can iterate over the `TreeMap` using the `entrySet()` method, which returns a set view of the map.
+   - **Interview question**: How do you iterate over a TreeMap?
+     - By using `entrySet()`, `keySet()`, or `values()`, depending on whether you want keys, values, or both.
+
+### 3. **Key Learning Points**
+   - **TreeMap sorting**: Keys are sorted in ascending order by default.
+   - **No null keys**: Null keys are not allowed, which will throw a `NullPointerException`.
+   - **Multiple null values**: TreeMap allows null values.
+   - **Thread Safety**: TreeMap is not thread-safe, so it should be synchronized externally if used in a multithreaded environment.
+
+### 4. **Potential Follow-up Interview Questions**
+   - How can you synchronize a TreeMap?
+     - You can wrap it using `Collections.synchronizedSortedMap(new TreeMap<>());`.
+   - Can you use custom sorting in a TreeMap?
+     - Yes, you can pass a custom `Comparator` during the TreeMap construction to define your own sorting logic.
+
+By explaining these points, you can showcase your understanding of the `TreeMap` class and its practical applications during an interview.
+ */
 }
+
 
 
 
