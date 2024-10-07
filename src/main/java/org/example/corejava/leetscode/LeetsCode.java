@@ -278,5 +278,68 @@ public class LeetsCode {
         }
     }
 
+    public static class CharacterReplacement {
+        public int characterReplacement(String s, int k) {
+            int[] charCount = new int[26]; // Array to store the frequency of each character
+            int left = 0;
+            int maxCount = 0;
+            int result = 0;
+
+            System.out.println("Initial State: ");
+            System.out.println("String: " + s);
+            System.out.println("Allowed replacements (k): " + k);
+            System.out.println();
+
+            // Sliding window approach
+            for (int right = 0; right < s.length(); right++) {
+                // Increment the count of the current character
+                charCount[s.charAt(right) - 'A']++;
+                System.out.println("Right pointer at index " + right + " (character: " + s.charAt(right) + ")");
+                System.out.println("charCount array: " + java.util.Arrays.toString(charCount));
+
+                // Update the maximum frequency of a character in the current window
+                maxCount = Math.max(maxCount, charCount[s.charAt(right) - 'A']);
+                System.out.println("Max frequency of any character in the window: " + maxCount);
+
+                // If the window is invalid, shrink it from the left
+                if ((right - left + 1) - maxCount > k) {
+                    System.out.println("Window size exceeds allowed replacements. Shrinking window from the left.");
+                    charCount[s.charAt(left) - 'A']--;
+                    System.out.println("Decrement count of character '" + s.charAt(left) + "' at left pointer index " + left);
+                    left++;
+                    System.out.println("Left pointer moved to index " + left);
+                }
+
+                // Update the result with the maximum valid window size
+                result = Math.max(result, right - left + 1);
+                System.out.println("Current window size (right - left + 1): " + (right - left + 1));
+                System.out.println("Current result (longest valid substring length so far): " + result);
+                System.out.println("--------------------------------------");
+            }
+
+            return result; // Return the length of the longest valid substring
+        }
+
+        // Main method to test the characterReplacement method
+        public static void main(String[] args) {
+            CharacterReplacement solution = new CharacterReplacement();
+
+            // Test case 1
+            String s1 = "ABAB";
+            int k1 = 2;
+            System.out.println("Test Case 1:");
+            System.out.println("Input: s = " + s1 + ", k = " + k1);
+            System.out.println("Result: " + solution.characterReplacement(s1, k1));
+            System.out.println("======================================\n");
+
+            // Test case 2
+            String s2 = "AABABBA";
+            int k2 = 1;
+            System.out.println("Test Case 2:");
+            System.out.println("Input: s = " + s2 + ", k = " + k2);
+            System.out.println("Result: " + solution.characterReplacement(s2, k2));
+        }
+    }
+
 }
 
