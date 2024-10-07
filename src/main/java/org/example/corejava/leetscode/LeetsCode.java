@@ -278,6 +278,31 @@ public class LeetsCode {
         }
     }
 
+
+    /*
+     Sliding Window Logic
+This part handles the sliding window,
+ where we move the right pointer through the string and adjust the window accordingly.
+         // Right pointer of the sliding window moves from 0 to s.length()
+        for (int right = 0; right < s.length(); right++) {
+            // Increment the count of the current character
+            charCount[s.charAt(right) - 'A']++;
+
+            // Find the maximum frequency of any character in the current window
+            maxCount = Math.max(maxCount, charCount[s.charAt(right) - 'A']);
+
+            // Check if the current window is valid
+            if ((right - left + 1) - maxCount > k) {
+                // If the window is invalid, shrink it from the left
+                charCount[s.charAt(left) - 'A']--;
+                left++;
+            }
+
+            // Update the result with the maximum valid window size
+            result = Math.max(result, right - left + 1);
+        }
+
+     */
     public static class CharacterReplacement {
         public int characterReplacement(String s, int k) {
             int[] charCount = new int[26]; // Array to store the frequency of each character
