@@ -366,5 +366,100 @@ This part handles the sliding window,
         }
     }
 
+/*
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+Explanation:
+nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
+nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
+nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
+The distinct triplets are [-1,0,1] and [-1,-1,2].
+Notice that the order of the output and the order of the triplets does not matter.
+ */
+
+   public static class ThreeSum {
+        public List<List<Integer>> threeSum(int[] nums) {
+            List<List<Integer>> result = new ArrayList<>();
+
+            // Step 1: Sort the array
+            Arrays.sort(nums);
+            System.out.println("Sorted array: " + Arrays.toString(nums));
+
+            // Step 2: Iterate through the array
+            for (int i = 0; i < nums.length - 2; i++) {
+
+                // Skip duplicate numbers for the first number
+                if (i > 0 && nums[i] == nums[i - 1]) {
+                    System.out.println("Skipping duplicate for nums[i]: " + nums[i]);
+                    continue;
+                }
+
+                // Step 3: Use two-pointer technique to find the other two numbers
+                int left = i + 1;
+                int right = nums.length - 1;
+                System.out.println("Checking for triplets with nums[i] = " + nums[i]);
+
+                while (left < right) {
+                    int sum = nums[i] + nums[left] + nums[right];
+                    System.out.println("Current triplet: [" + nums[i] + ", " + nums[left] + ", " + nums[right] + "], sum = " + sum);
+
+                    if (sum == 0) {
+                        // Found a triplet
+                        result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                        System.out.println("Found triplet: [" + nums[i] + ", " + nums[left] + ", " + nums[right] + "]");
+
+                        // Skip duplicates for the second number
+                        while (left < right && nums[left] == nums[left + 1]) {
+                            System.out.println("Skipping duplicate for nums[left]: " + nums[left]);
+                            left++;
+                        }
+                        // Skip duplicates for the third number
+                        while (left < right && nums[right] == nums[right - 1]) {
+                            System.out.println("Skipping duplicate for nums[right]: " + nums[right]);
+                            right--;
+                        }
+
+                        // Move both pointers inward after adding a valid triplet
+                        left++;
+                        right--;
+                    } else if (sum < 0) {
+                        left++; // We need a larger sum, move left pointer to the right
+                        System.out.println("Sum < 0, moving left pointer to: " + nums[left]);
+                    } else {
+                        right--; // We need a smaller sum, move right pointer to the left
+                        System.out.println("Sum > 0, moving right pointer to: " + nums[right]);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public static void main(String[] args) {
+            ThreeSum solution = new ThreeSum();
+
+            // Test case 1
+            int[] nums1 = {-1, 0, 1, 2, -1, -4};
+            System.out.println("\nTest case 1:");
+            List<List<Integer>> result1 = solution.threeSum(nums1);
+            System.out.println("Input: " + Arrays.toString(nums1));
+            System.out.println("Output: " + result1);
+
+            // Test case 2
+            int[] nums2 = {0, 1, 1};
+            System.out.println("\nTest case 2:");
+            List<List<Integer>> result2 = solution.threeSum(nums2);
+            System.out.println("Input: " + Arrays.toString(nums2));
+            System.out.println("Output: " + result2);
+
+            // Test case 3
+            int[] nums3 = {0, 0, 0};
+            System.out.println("\nTest case 3:");
+            List<List<Integer>> result3 = solution.threeSum(nums3);
+            System.out.println("Input: " + Arrays.toString(nums3));
+            System.out.println("Output: " + result3);
+        }
+    }
+
 }
 
