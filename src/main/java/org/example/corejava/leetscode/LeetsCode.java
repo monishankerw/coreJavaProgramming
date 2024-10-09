@@ -461,5 +461,131 @@ Notice that the order of the output and the order of the triplets does not matte
         }
     }
 
+
+
+
+    public static class NumIdenticalPairs {
+        public int numIdenticalPairs(int[] nums) {
+            // Create a hashmap to store the frequency of each number
+            HashMap<Integer, Integer> map = new HashMap<>();
+            int goodPairs = 0; // Variable to count the number of good pairs
+
+            System.out.println("Initial nums array: ");
+            for (int num : nums) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+
+            // Iterate through the array
+            for (int num : nums) {
+                // Check if the number already exists in the map
+                if (map.containsKey(num)) {
+                    // Print when we find a pair
+                    System.out.println("Found duplicate of: " + num);
+                    // Add the current count of this number to goodPairs (i.e., the count of previous occurrences)
+                    goodPairs += map.get(num);
+                    System.out.println("Number of good pairs so far: " + goodPairs);
+                }
+
+                // Update the count of this number in the map
+                map.put(num, map.getOrDefault(num, 0) + 1);
+                System.out.println("Updated frequency map: " + map);
+            }
+
+            System.out.println("Final number of good pairs: " + goodPairs);
+            return goodPairs;
+        }
+
+        // Main method to run the solution
+        public static void main(String[] args) {
+            NumIdenticalPairs solution = new NumIdenticalPairs();
+
+            // Test case 1
+            int[] nums1 = {1, 2, 3, 1, 1, 3};
+            System.out.println("Test Case 1:");
+            int result1 = solution.numIdenticalPairs(nums1);
+            System.out.println("Output: " + result1);
+
+            // Test case 2
+            int[] nums2 = {1, 1, 1, 1};
+            System.out.println("Test Case 2:");
+            int result2 = solution.numIdenticalPairs(nums2);
+            System.out.println("Output: " + result2);
+
+            // Test case 3
+            int[] nums3 = {1, 2, 3};
+            System.out.println("Test Case 3:");
+            int result3 = solution.numIdenticalPairs(nums3);
+            System.out.println("Output: " + result3);
+        }
+    }
+
+
+
+   public static class InterchangeableRectangles {
+        public long interchangeableRectangles(int[][] rectangles) {
+            // HashMap to store the frequency of each ratio (width/height in reduced form)
+            HashMap<String, Long> ratioMap = new HashMap<>();
+            long count = 0; // To keep track of the number of interchangeable pairs
+
+            System.out.println("Starting to process rectangles...");
+
+            // Iterate over all rectangles
+            for (int[] rectangle : rectangles) {
+                int width = rectangle[0];
+                int height = rectangle[1];
+                System.out.println("Processing rectangle with width: " + width + " and height: " + height);
+
+                // Calculate the greatest common divisor (GCD) of width and height
+                int gcd = gcd(width, height);
+                System.out.println("GCD of width and height: " + gcd);
+
+                // Reduce the width and height by their GCD to get the simplified ratio
+                int reducedWidth = width / gcd;
+                int reducedHeight = height / gcd;
+                System.out.println("Reduced width: " + reducedWidth + ", Reduced height: " + reducedHeight);
+
+                // Store the ratio as a string "width:height"
+                String ratio = reducedWidth + ":" + reducedHeight;
+                System.out.println("Simplified ratio: " + ratio);
+
+                // If this ratio is already in the map, add its frequency to the count of pairs
+                if (ratioMap.containsKey(ratio)) {
+                    count += ratioMap.get(ratio);
+                    System.out.println("Found interchangeable pair with ratio " + ratio + ", increasing count to " + count);
+                }
+
+                // Update the frequency of the current ratio in the map
+                ratioMap.put(ratio, ratioMap.getOrDefault(ratio, 0L) + 1);
+                System.out.println("Updated ratio map: " + ratioMap);
+            }
+
+            System.out.println("Final number of interchangeable pairs: " + count);
+            return count;
+        }
+
+        // Helper method to calculate the greatest common divisor (GCD)
+        private int gcd(int a, int b) {
+            if (b == 0) {
+                return a;
+            }
+            return gcd(b, a % b);
+        }
+
+        // Main method to test the solution
+        public static void main(String[] args) {
+            InterchangeableRectangles solution = new InterchangeableRectangles();
+
+            // Test case 1
+            int[][] rectangles1 = {{4, 8}, {3, 6}, {10, 20}, {15, 30}};
+            System.out.println("Test Case 1 Output: " + solution.interchangeableRectangles(rectangles1));
+
+            // Test case 2
+            int[][] rectangles2 = {{4, 5}, {7, 8}};
+            System.out.println("Test Case 2 Output: " + solution.interchangeableRectangles(rectangles2));
+        }
+    }
+
+
 }
 
