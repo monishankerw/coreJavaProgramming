@@ -586,6 +586,32 @@ Notice that the order of the output and the order of the triplets does not matte
         }
     }
 
+    //Best Time to Buy and Sell Stock
+    //Easy
+    //Maximum Product Subarray
+    //Medium
+    //Degree of an Array
+    //Easy
+    //Longest Turbulent Subarray
+    //Medium
+    //Maximum Score Of Spliced Array
+    //Hard
+    //Maximum Absolute Sum of Any Subarray
+    //Medium
+    //Maximum Subarray Sum After One Operation
+    //Medium
+    //Substring With Largest Variance
+    //Hard
+    //Count Subarrays With Score Less Than K
+    //Hard
+    //Maximum Value of a String in an Array
+    //Easy
+    //Find the Substring With Maximum Cost
+    //Medium
+    //K Items With the Maximum Sum
+    //Easy
+    //Maximum Good Subarray Sum
+    //Medium
 
 }
 
