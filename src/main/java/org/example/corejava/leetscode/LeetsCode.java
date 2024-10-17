@@ -1029,5 +1029,47 @@ The result will be the maximum value of both inc and dec during the traversal.
             throw new IllegalArgumentException("No two sum solution");
         }
         }
+
+
+    public static class ProductOfArrayExceptSelf {
+        public int[] productExceptSelf(int[] nums) {
+            int n = nums.length;
+            int[] answer = new int[n];
+
+            // Step 1: Compute left product for each element
+            answer[0] = 1; // Left product of the first element is 1 since no elements are to its left
+            for (int i = 1; i < n; i++) {
+                answer[i] = answer[i - 1] * nums[i - 1];
+                System.out.println("Left product up to index " + i + ": " + Arrays.toString(answer));
+            }
+
+            // Step 2: Compute right product and multiply with left product for each element
+            int rightProduct = 1; // No elements to the right of the last element
+            for (int i = n - 1; i >= 0; i--) {
+                answer[i] *= rightProduct; // Multiply current answer with the right product
+                rightProduct *= nums[i]; // Update right product for the next element (to the left)
+                System.out.println("After multiplying with right product at index " + i + ": " + Arrays.toString(answer));
+            }
+
+            return answer;
+        }
+
+        public static void main(String[] args) {
+            ProductOfArrayExceptSelf solution = new ProductOfArrayExceptSelf();
+
+            // Test case 1
+            int[] nums1 = {1, 2, 3, 4};
+            System.out.println("Input: " + Arrays.toString(nums1));
+            int[] result1 = solution.productExceptSelf(nums1);
+            System.out.println("Output: " + Arrays.toString(result1)); // Output: [24, 12, 8, 6]
+
+            // Test case 2
+            int[] nums2 = {-1, 1, 0, -3, 3};
+            System.out.println("\nInput: " + Arrays.toString(nums2));
+            int[] result2 = solution.productExceptSelf(nums2);
+            System.out.println("Output: " + Arrays.toString(result2)); // Output: [0, 0, 9, 0, 0]
+        }
+    }
+
 }
 
