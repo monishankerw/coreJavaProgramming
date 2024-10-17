@@ -18,7 +18,7 @@ public class LeetsCode {
          System.out.println(a+"After Swapping:"+a+":"+b);
      }
  }
-
+//2.Move Zero
     public static class MoveZero {
         public static void main(String[] args) {
             MoveZero moveZero = new MoveZero();
@@ -613,5 +613,421 @@ Notice that the order of the output and the order of the triplets does not matte
     //Maximum Good Subarray Sum
     //Medium
 
+
+    public static class MaximumProductSubarray {
+        public static void main(String[] args) {
+            MaximumProductSubarray maximumProductSubarray = new MaximumProductSubarray();
+            int nums[] = {2, 3, -2, 4};
+
+            int results = maximumProductSubarray.maxProductsSubArrays(nums);
+            System.out.println("Final Output: " + results);
+        }
+
+        private int maxProductsSubArrays(int[] nums) {
+            if (nums == null || nums.length == 0) {
+                System.out.println("The input array is null or empty.");
+                return 0;
+            }
+
+            // Initialize max, min, and result with the first element
+            int maxProducts = nums[0];
+            int minProducts = nums[0];
+            int result = nums[0];
+
+            System.out.println("Initial values -> maxProducts: " + maxProducts + ", minProducts: " + minProducts + ", result: " + result);
+
+            // Loop through the array starting from the second element
+            for (int i = 1; i < nums.length; i++) {
+                System.out.println("\nProcessing nums[" + i + "] = " + nums[i]);
+
+                // If the current number is negative, swap maxProducts and minProducts
+                if (nums[i] < 0) {
+                    System.out.println("nums[" + i + "] is negative. Swapping maxProducts and minProducts.");
+                    int temp = maxProducts;
+                    maxProducts = minProducts;
+                    minProducts = temp;
+                }
+
+                // Update maxProducts and minProducts for the current number
+                maxProducts = Math.max(nums[i], maxProducts * nums[i]);
+                minProducts = Math.min(nums[i], minProducts * nums[i]);
+
+                // Print the updated max and min products
+                System.out.println("Updated maxProducts: " + maxProducts + ", minProducts: " + minProducts);
+
+                // Update the result to store the maximum product found so far
+                result = Math.max(result, maxProducts);
+                System.out.println("Updated result: " + result);
+            }
+
+            // Return the maximum product subarray result
+            return result;
+        }
+    }
+   public static class KItemsWithMaximumSum {
+        public int kItemsWithMaximumSum(int numOnes, int numZeros, int numNegOnes, int k) {
+            int maxOnes = Math.min(numOnes, k);
+            k -= maxOnes;
+
+            int maxZeros = Math.min(numZeros, k);
+            k -= maxZeros;
+
+            int maxNegOnes = Math.min(numNegOnes, k);
+
+            return maxOnes - maxNegOnes;
+        }
+
+        public static void main(String[] args) {
+            int numOnes = 3;
+            int numZeros = 2;
+            int numNegOnes = 0;
+            int k = 2;
+            KItemsWithMaximumSum kItemsWithMaximumSum=new KItemsWithMaximumSum();
+           int output= kItemsWithMaximumSum.kItemsWithMaximumSum(numOnes,numZeros,numNegOnes,k);
+            System.out.printf("KItemsWithMaximumSum=="+output);
+        }
+    }
+
+    public static class MaximumValueOfaStringInanArray {
+
+        public static void main(String[] args) {
+            // Test case 1
+            String[] strs1 = {"alic3", "bob", "3", "4", "00000"};
+            System.out.println("Maximum value (Test Case 1): " + maximumValue(strs1));
+
+            // Test case 2
+            String[] strs2 = {"1", "01", "001", "0001"};
+            System.out.println("Maximum value (Test Case 2): " + maximumValue(strs2));
+        }
+
+        public static int maximumValue(String[] strs) {
+            int maxValue = 0;  // To store the maximum value
+            System.out.println("Initial maxValue: " + maxValue);
+
+            for (String str : strs) {
+                int currentValue;
+                if (isNumeric(str)) {
+                    // If the string consists only of digits, convert it to its numeric value
+                    currentValue = Integer.parseInt(str);
+                    System.out.println("String '" + str + "' is numeric. Numeric value: " + currentValue);
+                } else {
+                    // If the string contains letters, use its length as its value
+                    currentValue = str.length();
+                    System.out.println("String '" + str + "' is alphanumeric. Length value: " + currentValue);
+                }
+                // Update the maxValue if currentValue is greater
+                maxValue = Math.max(maxValue, currentValue);
+                System.out.println("Updated maxValue: " + maxValue);
+            }
+
+            return maxValue;
+        }
+
+        // Helper function to check if a string contains only digits
+        private static boolean isNumeric(String str) {
+            for (char c : str.toCharArray()) {
+                if (!Character.isDigit(c)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+
+
+    public static class FindShortestSubArray {
+        public int findShortestSubArray(int[] nums) {
+            HashMap<Integer, Integer> count = new HashMap<>();   // To store the frequency of each number
+            HashMap<Integer, Integer> first = new HashMap<>();   // To store the first occurrence index of each number
+            HashMap<Integer, Integer> last = new HashMap<>();    // To store the last occurrence index of each number
+
+            int degree = 0;  // Initialize degree of the array
+
+            // Iterate through the array to fill the maps
+            for (int i = 0; i < nums.length; i++) {
+                int num = nums[i];
+                count.put(num, count.getOrDefault(num, 0) + 1);
+                if (!first.containsKey(num)) {
+                    first.put(num, i);  // Record the first occurrence of num
+                }
+                last.put(num, i);  // Update the last occurrence of num
+
+                // Update degree with the maximum frequency
+                degree = Math.max(degree, count.get(num));
+            }
+
+            // Print the frequency count map
+            System.out.println("Count map: " + count);
+            // Print the first and last occurrence maps
+            System.out.println("First occurrence map: " + first);
+            System.out.println("Last occurrence map: " + last);
+            // Print the degree of the array
+            System.out.println("Degree of the array: " + degree);
+
+            int minLength = nums.length;  // Initialize minimum length as the entire array size
+
+            // Now iterate over the elements to find the smallest subarray with the same degree
+            for (int num : count.keySet()) {
+                if (count.get(num) == degree) {
+                    // Calculate the length of the subarray that contains this number with the same degree
+                    int subArrayLength = last.get(num) - first.get(num) + 1;
+                    // Print the length of the subarray
+                    System.out.println("Subarray length for number " + num + ": " + subArrayLength);
+                    minLength = Math.min(minLength, subArrayLength);
+                }
+            }
+
+            // Print the minimum length of the subarray found
+            System.out.println("Minimum length of subarray with same degree: " + minLength);
+
+            return minLength;
+        }
+
+        public static void main(String[] args) {
+            FindShortestSubArray solution = new FindShortestSubArray();
+
+            // Test case 1
+            int[] nums1 = {1, 2, 2, 3, 1};
+            System.out.println("Test case 1: ");
+            System.out.println("Result: " + solution.findShortestSubArray(nums1));  // Expected output: 2
+
+            // Test case 2
+            int[] nums2 = {1, 2, 2, 3, 1, 4, 2};
+            System.out.println("Test case 2: ");
+            System.out.println("Result: " + solution.findShortestSubArray(nums2));  // Expected output: 6
+        }
+    }
+    public static class BestTimeToBuyAndSellStock {
+        public int maxProfit(int[] prices) {
+            if (prices == null || prices.length == 0) {
+                System.out.println("Prices array is either null or empty.");
+                return 0;
+            }
+
+            int minPrice = Integer.MAX_VALUE;
+            int maxProfit = 0;
+
+            for (int price : prices) {
+                System.out.println("Current price: " + price);
+
+                if (price < minPrice) {
+                    minPrice = price;
+                    System.out.println("New minimum price found: " + minPrice);
+                } else {
+                    int profit = price - minPrice;
+                    System.out.println("Potential profit if sold now: " + profit);
+
+                    if (profit > maxProfit) {
+                        maxProfit = profit;
+                        System.out.println("New maximum profit found: " + maxProfit);
+                    }
+                }
+            }
+
+            System.out.println("Final maximum profit: " + maxProfit);
+            return maxProfit;
+        }
+
+        public static void main(String[] args) {
+            BestTimeToBuyAndSellStock solution = new BestTimeToBuyAndSellStock();
+
+            // Example 1
+            int[] prices1 = {7, 1, 5, 3, 6, 4};
+            System.out.println("Example 1: Prices = [7, 1, 5, 3, 6, 4]");
+            int result1 = solution.maxProfit(prices1);
+            System.out.println("Max Profit: " + result1);
+            System.out.println();
+
+            // Example 2
+            int[] prices2 = {7, 6, 4, 3, 1};
+            System.out.println("Example 2: Prices = [7, 6, 4, 3, 1]");
+            int result2 = solution.maxProfit(prices2);
+            System.out.println("Max Profit: " + result2);
+        }
+    }
+
+    /*
+    we can use a sliding window approach to determine the length of the maximum turbulent subarray.
+    Key Idea:
+We maintain two possible turbulent subarrays at a time:
+One where the elements alternate in a "greater, less" pattern (> then <).
+One where the elements alternate in a "less, greater" pattern (< then >).
+Plan:
+Traverse the array starting from the second element.
+Keep track of two variables inc and dec:
+inc: the length of a turbulent subarray where elements alternate in an increasing, then decreasing pattern.
+dec: the length of a turbulent subarray where elements alternate in a decreasing, then increasing pattern.
+As we traverse:
+If arr[i] > arr[i - 1], update inc = dec + 1 and reset dec to 1.
+If arr[i] < arr[i - 1], update dec = inc + 1 and reset inc to 1.
+If arr[i] == arr[i - 1], reset both inc and dec to 1.
+The result will be the maximum value of both inc and dec during the traversal.
+
+
+     */
+    public static class LongestTurbulentSubarray {
+
+        private int maxTurbulenceSize(int[] arr1) {
+            if (arr1.length == 1) {
+                System.out.println("Array has only one element, returning 1.");
+                return 1;
+            }
+
+            int inc = 1;  // Tracks length of a subarray where arr[i] > arr[i-1]
+            int dec = 1;  // Tracks length of a subarray where arr[i] < arr[i-1]
+            int maxLen = 1;  // Stores the maximum turbulent subarray length
+
+            for (int i = 1; i < arr1.length; i++) {
+                System.out.println("Current element: arr[" + i + "] = " + arr1[i] + ", Previous element: arr[" + (i - 1) + "] = " + arr1[i - 1]);
+
+                if (arr1[i] > arr1[i - 1]) {
+                    inc = dec + 1;  // Increase the "inc" length as the turbulent condition is satisfied
+                    dec = 1;  // Reset "dec" because we are now in the increasing pattern
+                    System.out.println("arr[" + i + "] > arr[" + (i - 1) + "], inc: " + inc + ", dec: " + dec);
+                } else if (arr1[i] < arr1[i - 1]) {
+                    dec = inc + 1;  // Increase the "dec" length as the turbulent condition is satisfied
+                    inc = 1;  // Reset "inc" because we are now in the decreasing pattern
+                    System.out.println("arr[" + i + "] < arr[" + (i - 1) + "], inc: " + inc + ", dec: " + dec);
+                } else {
+                    // arr[i] == arr[i - 1], so reset both inc and dec because there's no turbulence
+                    inc = 1;
+                    dec = 1;
+                    System.out.println("arr[" + i + "] == arr[" + (i - 1) + "], reset inc and dec to 1.");
+                }
+
+                // Update the maximum turbulent subarray length so far
+                maxLen = Math.max(maxLen, Math.max(inc, dec));
+                System.out.println("Updated maxLen: " + maxLen);
+            }
+
+            return maxLen;
+        }
+
+        public static void main(String[] args) {
+            LongestTurbulentSubarray longestTurbulentSubarray = new LongestTurbulentSubarray();
+
+            // Test case 1
+            int[] arr1 = {9, 4, 2, 10, 7, 8, 8, 1, 9};
+            System.out.println("Test Case 1:");
+            System.out.println("Max Turbulent Size: " + longestTurbulentSubarray.maxTurbulenceSize(arr1));  // Output: 5
+            System.out.println();
+
+            // Test case 2
+            int[] arr2 = {4, 8, 12, 16};
+            System.out.println("Test Case 2:");
+            System.out.println("Max Turbulent Size: " + longestTurbulentSubarray.maxTurbulenceSize(arr2));  // Output: 2
+            System.out.println();
+
+            // Test case 3
+            int[] arr3 = {100};
+            System.out.println("Test Case 3:");
+            System.out.println("Max Turbulent Size: " + longestTurbulentSubarray.maxTurbulenceSize(arr3));  // Output: 1
+        }
+    }
+
+    public static class Subsets {
+        public List<List<Integer>> subsets(int[] nums) {
+            List<List<Integer>> result = new ArrayList<>();
+            // Call the backtrack method to generate all subsets
+            System.out.println("Starting backtracking...");
+            backtrack(result, new ArrayList<>(), nums, 0);
+            return result;
+        }
+
+
+        public void backtrack(List<List<Integer>> result, List<Integer> tempList, int[] nums, int start) {
+            // Add the current subset (tempList) to the result
+            System.out.println("Current subset (tempList): " + tempList);
+            result.add(new ArrayList<>(tempList));
+            System.out.println("Subsets so far: " + result);
+
+            // Explore all elements starting from the index 'start'
+            for (int i = start; i < nums.length; i++) {
+                System.out.println("Adding " + nums[i] + " to the current subset");
+                // Include the current element nums[i] in the subset
+                tempList.add(nums[i]);
+
+                // Recursively call backtrack with the next index
+                System.out.println("Recursively calling backtrack with tempList: " + tempList + " and start: " + (i + 1));
+                backtrack(result, tempList, nums, i + 1);
+
+                // Exclude the last element (backtrack) and explore other subsets
+                System.out.println("Removing " + tempList.get(tempList.size() - 1) + " to backtrack");
+                tempList.remove(tempList.size() - 1);
+            }
+        }
+
+        public static void main(String[] args) {
+            Subsets sol = new Subsets();
+
+            // Test case 1
+            int[] nums1 = {1, 2, 3};
+            System.out.println("Subsets of [1, 2, 3]: " + sol.subsets(nums1));
+
+            // Test case 2
+            int[] nums2 = {0};
+            System.out.println("Subsets of [0]: " + sol.subsets(nums2));
+        }
+    }
+//    Key Fixes:
+//    Method Name Typo: Changed bracktrack to backtrack for consistency.
+//for Loop Placement: The for loop was mistakenly placed outside of the method body. Now, it is correctly inside the backtrack method.
+//            Recursion: The recursive call to backtrack should happen after adding an element to tempList and before removing it, ensuring all combinations are explored.
+//    How the Code Works:
+//    The backtrack method explores every possible subset by including and excluding each element.
+//    After exploring a subset, it adds the current combination to the result list.
+//    The backtracking technique ensures that all possible subsets are generated by recursively adding elements and then removing them to explore other possibilities.
+//
+
+    public static class TwoSum{
+        public static void main(String[] args) {
+            TwoSum twoSum=new TwoSum();
+            // Test case 1
+            int[] nums1 = {2, 7, 11, 15};
+            int target1 = 9;
+            System.out.println("Test case 1: Input: " + Arrays.toString(nums1) + ", Target: " + target1);
+            int[] result1 = twoSum.twoSum(nums1, target1);
+            System.out.println("Output: " + Arrays.toString(result1)); // Output: [0, 1]
+
+            // Test case 2
+            int[] nums2 = {3, 2, 4};
+            int target2 = 6;
+            System.out.println("\nTest case 2: Input: " + Arrays.toString(nums2) + ", Target: " + target2);
+            int[] result2 = twoSum.twoSum(nums2, target2);
+            System.out.println("Output: " + Arrays.toString(result2)); // Output: [1, 2]
+
+            // Test case 3
+            int[] nums3 = {3, 3};
+            int target3 = 6;
+            System.out.println("\nTest case 3: Input: " + Arrays.toString(nums3) + ", Target: " + target3);
+            int[] result3 = twoSum.twoSum(nums3, target3);
+            System.out.println("Output: " + Arrays.toString(result3)); // Output: [0, 1]
+
+        }
+
+        private int[] twoSum(int[] nums, int target) {
+            HashMap<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < nums.length; i++) {
+                int complement = target - nums[i]; // Calculate the complement
+                System.out.println("Iteration " + i + ":");
+                System.out.println("Current number: " + nums[i]);
+                System.out.println("Complement (target - current number): " + complement);
+
+                // Check if complement exists in the map
+                if (map.containsKey(complement)) {
+                    System.out.println("Complement " + complement + " found in map! Indices: " + map.get(complement) + " and " + i);
+                    return new int[]{map.get(complement), i}; // Return indices
+                }
+
+                // If complement not found, add the current number and its index to the map
+                map.put(nums[i], i);
+                System.out.println("Adding number " + nums[i] + " at index " + i + " to the map.");
+                System.out.println("Map state: " + map);
+            }
+
+            throw new IllegalArgumentException("No two sum solution");
+        }
+        }
 }
 
