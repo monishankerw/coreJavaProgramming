@@ -1069,7 +1069,37 @@ The result will be the maximum value of both inc and dec during the traversal.
             int[] result2 = solution.productExceptSelf(nums2);
             System.out.println("Output: " + Arrays.toString(result2)); // Output: [0, 0, 9, 0, 0]
         }
-    }
 
+        public static class MaximumSubarray {
+            public int maxSubArray(int[] nums) {
+                int maxSum = nums[0];
+                int currentSum = 0;
+                for (int num : nums) {
+                    if (currentSum < 0) {
+                        currentSum = 0;
+                    }
+                    currentSum += num;
+                    maxSum = Math.max(maxSum, currentSum);
+                }
+                return maxSum;
+            }
+
+            public static void main(String[] args) {
+                MaximumSubarray maximumSubarray = new MaximumSubarray();
+                // Test case 1
+                int[] nums1 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+                System.out.println("Max Subarray Sum: " + maximumSubarray.maxSubArray(nums1));  // Output: 6
+
+                // Test case 2
+                int[] nums2 = {1};
+                System.out.println("Max Subarray Sum: " + maximumSubarray.maxSubArray(nums2));  // Output: 1
+
+                // Test case 3
+                int[] nums3 = {5, 4, -1, 7, 8};
+                System.out.println("Max Subarray Sum: " + maximumSubarray.maxSubArray(nums3));  // Output: 23
+            }
+        }
+
+    }
 }
 
