@@ -1101,5 +1101,123 @@ The result will be the maximum value of both inc and dec during the traversal.
         }
 
     }
-}
+
+    public static class ConcatenationOfArray {
+        public static void main(String[] args) {
+            ConcatenationOfArray concatenationOfArray = new ConcatenationOfArray();
+
+            // Test case 1
+            int[] nums1 = {1, 2, 1};
+            int[] output1 = concatenationOfArray.concatenationOfArray(nums1);
+            System.out.print("Output for nums = [1, 2, 1]: ");
+            concatenationOfArray.printArray(output1);  // Expected: [1, 2, 1, 1, 2, 1]
+
+            // Test case 2
+            int[] nums2 = {1, 3, 2, 1};
+            int[] output2 = concatenationOfArray.concatenationOfArray(nums2);
+            System.out.print("Output for nums = [1, 3, 2, 1]: ");
+            concatenationOfArray.printArray(output2);  // Expected: [1, 3, 2, 1, 1, 3, 2, 1]
+        }
+
+        // Method to concatenate the array
+        private int[] concatenationOfArray(int[] nums) {
+            int n = nums.length;
+            int[] ans = new int[n * 2];  // Array of size 2n
+
+            // Fill the result array with two copies of nums
+            for (int i = 0; i < n; i++) {
+                ans[i] = nums[i];
+                ans[i + n] = nums[i];
+                System.out.println("After setting ans[" + i + "] = " + nums[i] + " and ans[" + (i + n) + "] = " + nums[i]);
+            }
+
+            return ans;
+        }
+
+        // Helper method to print an array
+        private void printArray(int[] arr) {
+            System.out.print("[");
+            for (int i = 0; i < arr.length; i++) {
+                System.out.print(arr[i]);
+                if (i < arr.length - 1) {
+                    System.out.print(", ");
+                }
+            }
+            System.out.println("]");
+        }
+
+        public static class ShuffletheArray {
+            public static void main(String[] args) {
+                ShuffletheArray shuffletheArray = new ShuffletheArray();
+
+                // Test case 1
+                int[] nums1 = {2, 5, 1, 3, 4, 7};
+                int n1 = 3;
+                int[] output1 = shuffletheArray.shuffletheArray(nums1, n1);
+                System.out.print("Output for nums = [2, 5, 1, 3, 4, 7], n = 3: ");
+                shuffletheArray.printArray(output1);  // Expected: [2, 3, 5, 4, 1, 7]
+
+                // Test case 2
+                int[] nums2 = {1, 2, 3, 4, 4, 3, 2, 1};
+                int n2 = 4;
+                int[] output2 = shuffletheArray.shuffletheArray(nums2, n2);
+                System.out.print("Output for nums = [1, 2, 3, 4, 4, 3, 2, 1], n = 4: ");
+                shuffletheArray.printArray(output2);  // Expected: [1, 4, 2, 3, 3, 2, 4, 1]
+
+                // Test case 3
+                int[] nums3 = {1, 1, 2, 2};
+                int n3 = 2;
+                int[] output3 = shuffletheArray.shuffletheArray(nums3, n3);
+                System.out.print("Output for nums = [1, 1, 2, 2], n = 2: ");
+                shuffletheArray.printArray(output3);  // Expected: [1, 2, 1, 2]
+            }
+
+            // Method to shuffle the array as per the problem statement
+            private int[] shuffletheArray(int[] nums, int n) {
+                int[] ans = new int[2 * n];
+
+                // Loop to interleave the arrays as required
+                for (int i = 0; i < n; i++) {
+                    ans[2 * i] = nums[i];         // Place xi at even indices
+                    ans[2 * i + 1] = nums[i + n]; // Place yi at odd indices
+                    System.out.println("Placing xi = " + nums[i] + " at ans[" + (2 * i) + "] and yi = " + nums[i + n] + " at ans[" + (2 * i + 1) + "]");
+                }
+
+                return ans;
+            }
+
+            // Helper method to print the array
+            private void printArray(int[] arr) {
+                System.out.print("[");
+                for (int i = 0; i < arr.length; i++) {
+                    System.out.print(arr[i]);
+                    if (i < arr.length - 1) {
+                        System.out.print(", ");
+                    }
+                }
+                System.out.println("]");
+            }
+        }
+    }
+    public static class ReverseStringWords{
+        public static void main(String[] args) {
+        String str="my name is abc";
+        String result=reverseString(str);
+            System.out.println(result);
+    }
+
+        private static String reverseString(String str) {
+            String[] words=str.trim().split("//str");
+            StringBuilder stringBuilder=new StringBuilder();
+            for (int i=words.length-1;i>=0;i--){
+                stringBuilder.append(words[i]);
+                if(i!=0){
+                    stringBuilder.append(" ");
+                }
+            }
+            return stringBuilder.toString();
+        }
+        }
+
+    }
 
