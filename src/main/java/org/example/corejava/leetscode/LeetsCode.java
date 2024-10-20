@@ -1218,6 +1218,213 @@ The result will be the maximum value of both inc and dec during the traversal.
             return stringBuilder.toString();
         }
         }
+    public static class LongestCommonPrefix {
+        public static String longestCommonPrefix(String[] strs) {
+            if (strs == null || strs.length == 0) {
+                return "";
+            }
 
+            // Take the first string as the initial reference for comparison
+            String prefix = strs[0];
+            System.out.println("Initial prefix: " + prefix);
+
+            // Iterate through the remaining strings in the array
+            for (int i = 1; i < strs.length; i++) {
+                System.out.println("Comparing with: " + strs[i]);
+
+                // Compare the current prefix with each string and reduce it until a match is found
+                while (strs[i].indexOf(prefix) != 0) {
+                    System.out.println("Current prefix '" + prefix + "' doesn't match, reducing it.");
+                    prefix = prefix.substring(0, prefix.length() - 1);
+                    System.out.println("Reduced prefix: " + prefix);
+                    if (prefix.isEmpty()) {
+                        System.out.println("No common prefix found.");
+                        return "";
+                    }
+                }
+            }
+
+            System.out.println("Final longest common prefix: " + prefix);
+            return prefix;
+        }
+
+        public static void main(String[] args) {
+            String[] strs1 = {"flower", "flow", "flight"};
+            System.out.println("Longest Common Prefix: " + longestCommonPrefix(strs1));
+            System.out.println();
+
+            String[] strs2 = {"dog", "racecar", "car"};
+            System.out.println("Longest Common Prefix: " + longestCommonPrefix(strs2));
+        }
+    }
+    public static class ReverseString {
+        public static void main(String[] args) {
+            // Example 1
+            char[] s1 = {'h', 'e', 'l', 'l', 'o'};
+            System.out.println("Input: " + String.valueOf(s1));
+            reverseString(s1);
+            System.out.println("Output: " + String.valueOf(s1));
+
+            // Example 2
+            char[] s2 = {'H', 'a', 'n', 'n', 'a', 'h'};
+            System.out.println("Input: " + String.valueOf(s2));
+            reverseString(s2);
+            System.out.println("Output: " + String.valueOf(s2));
+        }
+
+        // Reverse the string in-place
+        private static void reverseString(char[] s) {
+            int left = 0;
+            int right = s.length - 1;
+            while (left < right) {
+                // Swap the elements
+                char temp = s[left];
+                s[left] = s[right];
+                s[right] = temp;
+                // Move towards the middle
+                left++;
+                right--;
+            }
+        }
+    }
+    public static class ReverseStringII {
+        public static void main(String[] args) {
+            String s = "abcdefg"; // Input string
+            int k = 2; // Number of characters to reverse
+            System.out.println("Input = " + s + " K = " + k); // Print the input string and the value of k
+
+            String output = reverseStringII(s, k); // Call the reverseStringII method
+            System.out.println("Output: " + output); // Print the final output
+        }
+
+        private static String reverseStringII(String s, int k) {
+            // Convert the string into a character array so that we can modify it
+            char[] ch = s.toCharArray();
+            System.out.println("Character Array: " + java.util.Arrays.toString(ch)); // Print the character array
+
+            // Loop through the string in steps of 2k
+            for (int i = 0; i < ch.length; i += 2 * k) {
+                System.out.println("Processing chunk starting at index " + i);
+
+                int left = i; // Set the left pointer to the start of the current chunk
+                int right = Math.min(i + k - 1, ch.length - 1); // Set the right pointer to either the kth character or the last character
+                System.out.println("Reversing from index " + left + " to " + right);
+
+                // Reverse the first k characters (or fewer if remaining characters < k)
+                while (left < right) {
+                    // Swap the characters at the left and right indices
+                    char temp = ch[left];
+                    ch[left] = ch[right];
+                    ch[right] = temp;
+
+                    System.out.println("Swapped: " + ch[left] + " with " + ch[right]); // Print the swap information
+                    System.out.println("Current state: " + java.util.Arrays.toString(ch)); // Print the current state of the character array
+
+                    // Move the pointers towards the center
+                    left++;
+                    right--;
+                }
+            }
+
+            // Convert the modified character array back to a string
+            return new String(ch);
+        }
+    }
+    /*
+    int right = Math.min(i + k - 1, ch.length - 1);
+Explanation:
+i + k - 1:
+
+i is the current starting index of the chunk.
+k is the number of characters we want to reverse in each chunk.
+i + k - 1 calculates the index of the k-th character from the starting index i.
+Example:
+
+If i = 0 (starting from the first character) and k = 2, then i + k - 1 gives:
+0 + 2 - 1 = 1
+This means that we want to reverse the characters between index 0 and index 1 (the first two characters).
+ch.length - 1:
+
+This represents the last index in the character array ch.
+Since array indices are zero-based, ch.length - 1 is the last valid index.
+Example:
+
+If ch.length = 7 (for the string "abcdefg"), then ch.length - 1 is 6, which is the index of the last character "g".
+Math.min():
+
+Math.min(a, b) returns the smaller of the two values a and b.
+
+In this case,
+Math.min(i + k - 1, ch.length - 1)
+ensures that the right boundary (right) does not go beyond the last character of the array.
+
+If i + k - 1 exceeds the length of the array, Math.min will cap the right pointer at ch.length - 1 to prevent out-of-bounds errors.
+
+Example Scenarios:
+Case 1: Full chunk within bounds
+Input: "abcdefg", k = 2, i = 0
+Calculation:
+i + k - 1 = 0 + 2 - 1 = 1
+ch.length - 1 = 6
+right = Math.min(1, 6) = 1
+This means the characters at index 0 and 1 will be reversed.
+Case 2: Partial chunk at the end of the string
+Input: "abcdefg", k = 2, i = 4 (chunk starts at index 4)
+Calculation:
+i + k - 1 = 4 + 2 - 1 = 5
+ch.length - 1 = 6
+right = Math.min(5, 6) = 5
+This means the characters at index 4 and 5 will be reversed.
+Case 3: Less than k characters left
+Input: "abcdefg", k = 2, i = 6 (last character)
+Calculation:
+i + k - 1 = 6 + 2 - 1 = 7
+ch.length - 1 = 6
+right = Math.min(7, 6) = 6
+This means only the last character (index 6, "g") will be processed, but since it's a single character, no swap is needed.
+     */
+
+    public static class ReverseVowelOfString {
+        public static void main(String[] args) {
+
+            ReverseVowelOfString solution = new ReverseVowelOfString();
+            // Example 1
+            String input1 = "IceCreAm";
+            String output1 = solution.reverseVowels(input1);
+            System.out.println("Input: " + input1);
+            System.out.println("Output: " + output1);
+
+            // Example 2
+            String input2 = "leetcode";
+            String output2 = solution.reverseVowels(input2);
+            System.out.println("Input: " + input2);
+            System.out.println("Output: " + output2);
+        }
+
+        private String reverseVowels(String s) {
+            char[] ch=s.toCharArray();
+            System.out.println("Character Array: " + java.util.Arrays.toString(ch)); // Print the character array
+            Set<Character>vowels=new HashSet<>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+            int left=0;
+            int right=ch.length-1;
+            while (left<right){
+                while (left<right&&!vowels.contains(ch[left])){
+                    left++;
+                }
+                while (left<right&&!vowels.contains(ch[right])){
+                    right--;
+                }
+                if(left<right){
+                    char temp=ch[left];
+                    ch[left]=ch[right];
+                    ch[right]=temp;
+                    left++;
+                    right--;
+                }
+            }
+return new String(ch);
+
+        }
+    }
     }
 
