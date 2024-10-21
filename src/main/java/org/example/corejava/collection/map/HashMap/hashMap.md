@@ -6,7 +6,7 @@ Here’s the Markdown version of the content you shared:
 ### Q. Difference between `HashMap` and `HashTable`.
 - **HashMap**:
   1. Not synchronized, not thread-safe (better performance).
-  2. Allows `null` for both key and value.
+  2. Allows `null` for both key and value.(key use only one null and value use multiple)
   3. Non-legacy class.
   4. Introduced in JDK 1.2.
 

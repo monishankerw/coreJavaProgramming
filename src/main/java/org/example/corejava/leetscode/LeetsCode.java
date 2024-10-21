@@ -1,5 +1,7 @@
 package org.example.corejava.leetscode;
 
+import org.example.corejava.exception.Exceptions;
+
 import java.util.*;
 
 public class LeetsCode {
@@ -1426,5 +1428,55 @@ return new String(ch);
 
         }
     }
+
+    public static class ValidPalindrome {
+        public static void main(String[] args) {
+            ValidPalindrome sol = new ValidPalindrome();
+            String s = "A man, a plan, a canal: Panama";
+            System.out.println("Input:: " + s);
+
+            // Call the isValidPalindrome method and print the result
+            Boolean output = isValidPalindrome(s);
+            System.out.println("Output: " + output);
+        }
+
+        private static Boolean isValidPalindrome(String s) {
+            System.out.println("Step 1: Initialize StringBuilder to build the cleaned string.");
+
+            // Initialize StringBuilder to store only valid characters
+            StringBuilder stringBuilder = new StringBuilder();
+
+            // Loop through the input string character by character
+            System.out.println("Step 2: Looping through each character of the input string.");
+            for (char c : s.toCharArray()) {
+                // Check if the character is a letter or digit
+                if (Character.isLetterOrDigit(c)) {
+                    // Convert to lowercase and append to stringBuilder
+                    System.out.println("Character '" + c + "' is valid. Adding '" + Character.toLowerCase(c) + "' to the cleaned string.");
+                    stringBuilder.append(Character.toLowerCase(c));
+                } else {
+                    System.out.println("Character '" + c + "' is ignored as it is not a letter or digit.");
+                }
+            }
+
+            // Convert the cleaned string to a regular string
+            String cleanString = stringBuilder.toString();
+            System.out.println("Step 3: Cleaned string is: " + cleanString);
+
+            // Reverse the string using StringBuilder reverse method
+            System.out.println("Step 4: Reverse the cleaned string.");
+            String reverseString = stringBuilder.reverse().toString();
+            System.out.println("Reversed string is: " + reverseString);
+
+            // Compare the cleaned string and the reversed string
+            System.out.println("Step 5: Compare the cleaned and reversed strings.");
+            boolean isPalindrome = cleanString.equals(reverseString);
+            System.out.println("Is the string a palindrome? " + isPalindrome);
+
+            // Return the result
+            return isPalindrome;
+        }
     }
+
+}
 
