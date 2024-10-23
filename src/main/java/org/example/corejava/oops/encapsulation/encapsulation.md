@@ -3,6 +3,7 @@
  --> Wrapping of data with a method that operate on the data is called as encapsulation.
  --> Here we avoid direct access to data by making variable private.
  --> To Operate on data we create publicly  define getter and setter.
+
  2. Advantage
  --> Control Access to data validate Values.
  --> Before modification make read only or write only class.

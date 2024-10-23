@@ -1508,5 +1508,52 @@ return new String(ch);
         }
     }
 
+
+
+    public static class CountElementsWithMaximumFrequency {
+        public static void main(String[] args) {
+            CountElementsWithMaximumFrequency output = new CountElementsWithMaximumFrequency();
+            int[] nums = {1, 2, 2, 3, 1, 4};
+            System.out.println("Input array:");
+            for (int num : nums) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+
+            int outputs = output.countElementsWithMaximumFrequency(nums);
+            System.out.println("Final Output: " + outputs);
+        }
+
+        private int countElementsWithMaximumFrequency(int[] nums) {
+            Map<Integer, Integer> map = new HashMap<>();
+            int totalMaxFreq = 0;
+
+            // Populate frequency map
+            for (int num : nums) {
+                map.put(num, map.getOrDefault(num, 0) + 1);
+            }
+
+            System.out.println("Frequency map: " + map);
+
+            // Find maximum frequency
+            int maxFre = 0;
+            for (int fre : map.values()) {
+                maxFre = Math.max(maxFre, fre);
+            }
+            System.out.println("Maximum Frequency: " + maxFre);
+
+            // Calculate total number of elements with maximum frequency
+            totalMaxFreq = 0;
+            for (int fre : map.values()) {
+                if (fre == maxFre) {
+                    totalMaxFreq += fre;
+                }
+            }
+
+            System.out.println("Total elements with max frequency: " + totalMaxFreq);
+            return totalMaxFreq;
+        }
+    }
+
 }
 
