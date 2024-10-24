@@ -3,6 +3,7 @@
 --> Hiding of implementation details is called as abstraction.
 --> We can achieved in java using interface and abstract classes.
 --> We can achieve 100% abstraction using interface.
+
 2. What is Abstract keyword?
 --> Abstract keyword help us to defined incomplete method and incomplete class.
 --> To develop incomplete method in interface used of abstract keyword.
@@ -21,6 +22,7 @@ public void example();
 --> We can create main method in an abstract class.
 --> Object of abstract class can not be created.
 --> Abstract class does not support multiple inheritance.
+
 4.
 --> yes, an abstract class always has a constructor. If you do not define you own constructor, the compiler will give a 
     default constructor to abstract constructor.
@@ -35,6 +37,7 @@ Abstract class
 --> Abstract class can be 0 to 100% uncompleted.
 --> Does not support multiple inheritance.
 --> We can create static and non-static variable.
+
 6. Difference between abstraction and encapsulation?
 abstraction
 --> Hiding of implementation detail is called abstraction.

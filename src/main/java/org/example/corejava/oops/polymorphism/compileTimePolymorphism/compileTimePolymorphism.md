@@ -55,6 +55,7 @@ public class A {
 ### 1. **Can we overload methods that differ only by the static keyword?**
 - **Answer**: No, overloading methods that differ only by the `static` keyword is not possible. The parameter list must differ.
 
+
 ### 2. **Can we overload methods with different return types?**
 - **Answer**: No, overloading based only on return types is not allowed in Java. The parameter list must be different for method overloading.
 
@@ -74,4 +75,47 @@ public class A {
 
 Compile-time polymorphism enhances code readability and reusability by allowing multiple methods with similar functionality to be grouped under a single method name.
 ```
+class OverloadingExample {
+
+    // Standard main method that JVM will call
+    public static void main(String[] args) {
+        OverloadingExample obj = new OverloadingExample();
+
+        System.out.println("Overloading example in Java:");
+
+        // Call the overloaded methods
+        obj.printInfo(5);  // Call to method with an integer parameter
+        obj.printInfo("Hello");  // Call to method with a string parameter
+        obj.printInfo(5, "Hello");  // Call to method with an integer and string parameters
+        obj.printInfo("Hello", 5);  // Call to method with a string and integer (different order)
+        
+        // Calling overloaded main method
+        obj.main(10);
+    }
+
+    // Method with an integer parameter
+    public void printInfo(int num) {
+        System.out.println("Method with integer parameter: " + num);
+    }
+
+    // Overloaded method with a string parameter
+    public void printInfo(String msg) {
+        System.out.println("Method with string parameter: " + msg);
+    }
+
+    // Overloaded method with both integer and string (int first)
+    public void printInfo(int num, String msg) {
+        System.out.println("Method with int and string parameters: " + num + ", " + msg);
+    }
+
+    // Overloaded method with both string and integer (string first)
+    public void printInfo(String msg, int num) {
+        System.out.println("Method with string and int parameters (different order): " + msg + ", " + num);
+    }
+
+    // Overloaded main method
+    public void main(int num) {
+        System.out.println("Overloaded main method with integer parameter: " + num);
+    }
+}
 

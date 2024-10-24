@@ -1555,5 +1555,61 @@ return new String(ch);
         }
     }
 
+
+    public static class RotateArray {
+        public void rotate(int[] nums, int k) {
+            int n = nums.length;  // Get the length of the array
+            System.out.println("Original array: " + Arrays.toString(nums));
+
+            // Step 1: Handle cases where k > n (to avoid unnecessary rotations)
+            k = k % n;  // Only rotate k % n times if k is larger than n
+            System.out.println("Effective rotation steps (k % n): " + k);
+
+            // Step 2: Reverse the entire array
+            reverse(nums, 0, n - 1);
+            System.out.println("Array after reversing entire array: " + Arrays.toString(nums));
+
+            // Step 3: Reverse the first k elements
+            reverse(nums, 0, k - 1);
+            System.out.println("Array after reversing first " + k + " elements: " + Arrays.toString(nums));
+
+            // Step 4: Reverse the remaining n - k elements
+            reverse(nums, k, n - 1);
+            System.out.println("Array after reversing remaining elements: " + Arrays.toString(nums));
+        }
+
+        // Helper function to reverse a portion of the array
+        private void reverse(int[] nums, int start, int end) {
+            while (start < end) {
+                System.out.println("Swapping nums[" + start + "] = " + nums[start] + " and nums[" + end + "] = " + nums[end]);
+
+                // Swap the elements at the start and end indices
+                int temp = nums[start];
+                nums[start] = nums[end];
+                nums[end] = temp;
+
+                // Move the start index forward and the end index backward
+                start++;
+                end--;
+            }
+        }
+
+        public static void main(String[] args) {
+            RotateArray solution = new RotateArray();
+
+            // Test Case 1
+            int[] nums1 = {1, 2, 3, 4, 5, 6, 7};
+            int k1 = 3;
+            System.out.println("\nTest Case 1:");
+            solution.rotate(nums1, k1);
+
+            // Test Case 2
+            int[] nums2 = {-1, -100, 3, 99};
+            int k2 = 2;
+            System.out.println("\nTest Case 2:");
+            solution.rotate(nums2, k2);
+        }
+    }
+
 }
 
