@@ -12,7 +12,12 @@ public class A {
         List<String> words = Arrays.asList("apple", "banana", "cherry", "app", "application");
         List<List<Integer>> lists = Arrays.asList(Arrays.asList(1, 2, 3), Arrays.asList(4, 3, 1), Arrays.asList(5, 7, 6));
 
-        // 1. filter
+
+        //1. stream(): convert collection into stream
+//        List<Integer>out=num.stream();
+//        System.out.println(out+"output");
+        // collect(): Collects the elements into a another data structure.
+        // 1. filter():filter the elements based on a predicate.
         // a. find even number
         System.out.println("EvenNumber::" + num.stream().filter(nums -> nums % 2 == 0).collect(Collectors.toList()));
         System.out.println("Print Even Number and Sum even number::" + num.stream().filter(x -> x % 2 == 0).map(x -> x * x).collect(Collectors.toList()));
@@ -26,10 +31,9 @@ public class A {
         System.out.println("Even Number:" + partitionedNumbers.get(true));
         System.out.println("Odd Number:" + partitionedNumbers.get(false));
 
-        // 2. map
+        // 2. map : Transforms each elements into another form
         // Print String in upper case
         System.out.println("UPPERCASE WORDS::" + words.stream().map(String::toUpperCase).collect(Collectors.toList()));
-
         // 3. mapToInt
         // sum all number in list
         System.out.println("Sum All Numbers::" + num.stream().mapToInt(Integer::intValue).sum());
@@ -44,7 +48,7 @@ public class A {
         // 6. count the word greater than 3
         System.out.println("Count Word Greater Than Three::" + words.stream().filter(x -> x.length() > 3).count());
 
-        // 7. flatten the lists into a single list
+        // 7.flatMap(): flatten the lists into a single list
         System.out.println("Print Single List::" + lists.stream().flatMap(List::stream).collect(Collectors.toList()));
 
         // merge list and remove duplicate
@@ -67,8 +71,9 @@ public class A {
                         Function.identity(), // Use the character as the key
                         Collectors.counting() // Count the occurrences
                 ));
-
-        // Print the character counts
+//forEach():Performs an actions on each elements
+        System.out.println("Performing an action on each element:");
+        num.stream().forEach(System.out::println);         // Print the character counts
         characterCount.forEach((character, count) -> System.out.println(character + ": " + count));
 
         // Convert a stream of strings to a list of integers representing their lengths
