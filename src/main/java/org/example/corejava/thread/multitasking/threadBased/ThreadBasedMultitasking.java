@@ -1,7 +1,7 @@
 package org.example.corejava.thread.multitasking.threadBased;
 
 //Thread-Based Multitasking
-//In thread-based multitasking, multiple threads run within the same process. Here’s an example using threads:
+//In thread-based multitasking.md, multiple threads run within the same process. Here’s an example using threads:
 
 public class ThreadBasedMultitasking {
     public static void main(String[] args) {

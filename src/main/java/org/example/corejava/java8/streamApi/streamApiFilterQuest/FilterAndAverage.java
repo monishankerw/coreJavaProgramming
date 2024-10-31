@@ -12,7 +12,7 @@ public class FilterAndAverage {
 
     public static void main(String[] args) {
         List<Integer> num=Arrays.asList(12,10,6,12,35,35,22,33);
-       OptionalDouble number= num.stream().filter(n->n>10).mapToInt(n->n).average();
+       OptionalDouble number= num.stream().filter(n->n>10).mapToInt(x->x).average();
         System.out.println(number);
     }
 

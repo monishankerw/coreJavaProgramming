@@ -1,7 +1,5 @@
 package org.example.corejava.leetscode;
 
-import org.example.corejava.exception.Exceptions;
-
 import java.util.*;
 
 public class LeetsCode {
@@ -1608,6 +1606,39 @@ return new String(ch);
             int k2 = 2;
             System.out.println("\nTest Case 2:");
             solution.rotate(nums2, k2);
+        }
+    }
+
+
+    public static class RemoveElements {
+        public static void main(String[] args) {
+            int[] nums = {3, 2, 2, 3};
+            System.out.println("Input: " + java.util.Arrays.toString(nums));
+            int val = 3;
+
+            RemoveElements removeElements = new RemoveElements();
+            int output = removeElements.removeElements(nums, val);
+
+            System.out.println("Output (k): " + output);
+            System.out.println("Modified Array: " + java.util.Arrays.toString(nums));
+        }
+
+        private int removeElements(int[] nums, int val) {
+            int k = 0;
+            for (int i = 0; i < nums.length; i++) {
+                System.out.println("Iteration " + i + ": ");
+                System.out.println("nums[" + i + "] = " + nums[i] + ", k = " + k);
+
+                if (nums[i] != val) {
+                    nums[k] = nums[i];
+                    System.out.println("Placing " + nums[i] + " at position " + k);
+                    k++;
+                }
+
+                System.out.println("Current array: " + java.util.Arrays.toString(nums));
+                System.out.println("--------------------------------");
+            }
+            return k;
         }
     }
 
