@@ -14,6 +14,17 @@ such as **inheritance**, **polymorphism**, **abstraction**, and **encapsulation*
 4. **Data Hiding:** External functions cannot access hidden data.
 5. **Encapsulation of Methods:** Methods operate on data within an object, binding behavior and data together.
 
+## OOPS CONCEPTS 
+1. **OBJECT**
+2. **CLASS**
+3. **INHERITANCE**
+4. **POLYMORPHISM**
+5. **ABSTRACTION**
+6. **ENCAPSULATION**
+7. **ASSOCIATION**
+8. **COMPOSITION**
+9. **COUPLING**
+10.**COHESION**
 ## Real-Time Example: Bank Account Management System
 
 An example of OOP concepts can be demonstrated in a **Bank Account Management System**.
