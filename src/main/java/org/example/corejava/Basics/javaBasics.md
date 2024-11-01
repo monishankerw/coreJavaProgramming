@@ -84,55 +84,13 @@ Q. System.out.println("Hello");
 
 Q. How to set path in Java?
 
-Q. Explain JDK, JRE and JVM?
-JDK: jre+ DevelopmentKit
-java development kit.
-It is used develop to code write and run program.
-It consists of develop kit with jre.
-
-JRE: Java runtime environment 
-JRE: JVM+liberty Set
 
 
-JVM: java virtual Machine
-Jvm read .class file and give output
-
-Q. JVM Memory Management
-1. Stack
-2. Heap
-
---> Program execution flow in maintain stack.
---> All the object in Java created in Heap.
---> Non-static and static variable are stored in Meta space.
---> Local and non-static variable in Heap.
-
-Q. ClassLoader:
-classloader is abstract class.--> java.lang.package
-classloader is a subsystem of jvm which is used to load class files.
-whenever we run the java program, it is loaded first by class loader.
-
-1. Bootstrap class loader
-2. Extension class loader
-3. System/application class loader
-
-
-Q. Why Java is platform Independent language?
-when .java file compile into .class file it converted into byte code by jit compiler and this byte code can use any platform because of jvm.
-
-Q. What is JIT compiler in JAVA?
--> The JUST-IN-TIME is a component of the jre that improve the performance of java application at run time.
---> It helps improve the performance of java programs by compiling bytes codes into native machine code at runtime.
 
 Q. Why Java is not pure object oriented language?
 
 Because of primitive data type java is not 100% object oriented programming language.
 
-Q. What is Garbage collection?
---> Regular bases of unease object store in ram.
---> To avoiding overflow of memory.
---> Help to manage the memory efficient.
-
-Here's a brief summary on the concept of Wrapper classes in Java:
 
 ### Wrapper Class in Java
 
