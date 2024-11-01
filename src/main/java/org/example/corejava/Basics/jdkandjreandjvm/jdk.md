@@ -71,6 +71,8 @@ class MyClass implements Cloneable {
     }
 }
 ```
+Q. Cloning?
+The Process of creating the replicable of a particular object by coping the context of one object completly into another object.
 
 #### Types of Cloning
 - **Shallow Copy**: Default behavior of `super.clone()`; copies only the object's immediate properties.

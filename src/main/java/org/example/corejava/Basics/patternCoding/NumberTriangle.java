@@ -1,4 +1,4 @@
-package org.example.corejava.Basics;
+package org.example.corejava.Basics.patternCoding;
 
 public class NumberTriangle {
     public static void main(String[] args) {

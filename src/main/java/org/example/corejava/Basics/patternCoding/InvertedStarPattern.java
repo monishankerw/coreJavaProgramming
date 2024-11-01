@@ -1,4 +1,4 @@
-package org.example.corejava.Basics;
+package org.example.corejava.Basics.patternCoding;
 
 public class InvertedStarPattern {
     public static void main(String[] args) {
