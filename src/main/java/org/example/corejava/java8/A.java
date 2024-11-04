@@ -22,9 +22,14 @@ public class A {
         System.out.println("EvenNumber::" + num.stream().filter(nums -> nums % 2 == 0).collect(Collectors.toList()));
         System.out.println("Print Even Number and Sum even number::" + num.stream().filter(x -> x % 2 == 0).map(x -> x * x).collect(Collectors.toList()));
 
-        // reduce()
+        // reduce():Terminal Operation
+        //Used to perform a reduction on the elements of a stream using an associative accumulation function and returning an optional with the reduced value.
         // sum of even number
-        System.out.println("Sum of even number::" + num.stream().filter(x -> x % 2 == 0).reduce(0, Integer::sum));
+        System.out.println("Sum of even numbers: " +
+                num.stream()
+                        .filter(x -> x % 2 == 0)
+                        .reduce(0, (a, b) -> a + b)
+        );
 
         // Partitioning the list into even and odd numbers
         Map<Boolean, List<Integer>> partitionedNumbers = num.stream().collect(Collectors.partitioningBy(n -> n % 2 == 0));

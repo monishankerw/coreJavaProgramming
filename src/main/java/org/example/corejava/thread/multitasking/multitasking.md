@@ -1,4 +1,4 @@
-MultiTasking: Executing server tasks simultaneously is concepts of Multitasking.
+MultiTasking: Executing(ˈए᠎̮क्सिक्‍यूट्‌) server tasks simultaneously is concepts of Multitasking.
                           Two Types:
                             1. Process Based MultiTasking
                             2. Thread Based Multitasking

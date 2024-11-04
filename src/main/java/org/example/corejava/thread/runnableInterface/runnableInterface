@@ -1,6 +1,6 @@
 
        Interface Runnable
-       -> Which Thread will executed how much time can not predicated by programmer as it is decided by the processor depinding or it availabilty.
+       -> Which Thread will executed how much time can not predicated by programmer as it is decided by the processor depending or it availability.
 
        CREATING A THREAD USING Runnable Interface
        1. create a class that implements Runnable.
