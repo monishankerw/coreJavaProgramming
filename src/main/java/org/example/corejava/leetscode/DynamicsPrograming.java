@@ -98,5 +98,51 @@ public class DynamicsPrograming {
             return prevOne;
         }
     }
+
+    public static class CoinChangesII{
+        public static void main(String[] args) {
+            int amount=5;
+            int []coins={1,2,5};
+           int output= coinChangesII(amount,coins);
+            System.out.println("Output:"+output);
+        }
+
+        private static int coinChangesII(int amount, int[] coins) {
+            int[] dp=new int[amount+1];
+            dp[0]=1;
+
+            for(int coin:coins){
+                for (int j=coin;j<=amount;j++){
+                    dp[j]+=dp[j-coin];
+                }
+            }
+            return dp[amount];
+        }
+    }
+    public static class MaximumLengthOfRepatedSubarray{
+        public static void main(String[] args) {
+            int []nums1={1,2,3,2,1};
+            int []nums2={3,2,1,4,7};
+          int output=  maximumLengthOfRepatedSubarray(nums1,nums2);
+            System.out.println("output:"+output);
+        }
+
+        private static int maximumLengthOfRepatedSubarray(int[] nums1, int[] nums2) {
+            int m=nums1.length;
+            int n=nums2.length;
+            int [][]dp=new int[m+1][n+1];
+            int maxLength=0;
+            for(int i=1;i<=m;i++){
+                for(int j=1;j<=n;j++){
+                    if(nums1[i-1]==nums2[j-1]){
+                        dp[i][j]=dp[i-1][j-1]+1;
+                        maxLength=Math.max(maxLength,dp[i][j]);
+                    }
+                }
+            }
+            return maxLength;
+
+        }
+    }
 }
 

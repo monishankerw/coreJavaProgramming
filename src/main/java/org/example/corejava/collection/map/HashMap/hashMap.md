@@ -139,4 +139,3 @@ Here’s the Markdown version of the content you shared:
 - **WeakHashMap** uses weak references for keys. If a key is no longer referenced elsewhere, the garbage collector removes the entry from the map. Useful for caching scenarios.
 ```
 
-This format is ready to be used for documentation or interview preparation in `.md` files!
