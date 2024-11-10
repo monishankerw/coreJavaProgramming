@@ -185,4 +185,3 @@ When preparing for an interview, understanding how **Set** collections work in J
    }
    ```
 
-By understanding these core concepts and being able to explain and demonstrate their use, you'll be well-prepared for questions about collections, specifically `Set`, in your Java interview.
