@@ -28,8 +28,144 @@ LinkedHashSet
 2. LinkedHashSet internally map LinkedHashMap.
 
 
+--- 
 
+Here are some multiple-choice questions (MCQs) based on the concepts of HashSet, its internal workings, and comparison with LinkedHashSet:
 
+Basics of HashSet
+
+	1.	Which of the following statements about HashSet is true?
+	•	A. It maintains insertion order.
+	•	B. It allows duplicate values.
+	•	C. It does not allow duplicate values.
+	•	D. It is synchronized by default.
+Answer: C. It does not allow duplicate values.
+	2.	Which data structure does HashSet use internally to store elements?
+	•	A. ArrayList
+	•	B. LinkedList
+	•	C. HashMap
+	•	D. TreeMap
+Answer: C. HashMap
+	3.	How does HashSet handle duplicate elements?
+	•	A. By storing them in a linked list.
+	•	B. By ignoring duplicate entries using equals() method.
+	•	C. By throwing an exception.
+	•	D. By maintaining a count of duplicates.
+Answer: B. By ignoring duplicate entries using equals() method.
+	4.	What is the primary advantage of using a HashSet?
+	•	A. It maintains sorted order.
+	•	B. It provides constant-time performance for add, remove, and contains operations.
+	•	C. It is thread-safe.
+	•	D. It uses minimal memory.
+Answer: B. It provides constant-time performance for add, remove, and contains operations.
+	5.	Which of the following is a valid way to add an element to a HashSet?
+	•	A. set.put(obj);
+	•	B. set.add(obj);
+	•	C. set.insert(obj);
+	•	D. set.append(obj);
+Answer: B. set.add(obj);
+
+HashSet vs LinkedHashSet
+
+	6.	Which of these classes maintains insertion order?
+	•	A. HashSet
+	•	B. LinkedHashSet
+	•	C. TreeSet
+	•	D. HashMap
+Answer: B. LinkedHashSet
+	7.	What data structure does LinkedHashSet use internally to maintain insertion order?
+	•	A. HashMap
+	•	B. TreeMap
+	•	C. LinkedHashMap
+	•	D. LinkedList
+Answer: C. LinkedHashMap
+	8.	Which of the following is true about the relationship between HashSet and LinkedHashSet?
+	•	A. LinkedHashSet is faster than HashSet.
+	•	B. HashSet maintains insertion order, while LinkedHashSet does not.
+	•	C. Both HashSet and LinkedHashSet prevent duplicate entries.
+	•	D. LinkedHashSet uses TreeMap internally.
+Answer: C. Both HashSet and LinkedHashSet prevent duplicate entries.
+
+Internal Working of HashSet
+
+	9.	What role does hashCode() play in the HashSet?
+	•	A. Determines the index of the bucket where the element will be stored.
+	•	B. Decides the size of the HashSet.
+	•	C. Checks for equality of two elements.
+	•	D. Ensures HashSet synchronization.
+Answer: A. Determines the index of the bucket where the element will be stored.
+	10.	What data structure does HashSet use within each bucket to handle collisions?
+	•	A. ArrayList
+	•	B. LinkedList or balanced tree (after Java 8)
+	•	C. Array
+	•	D. Stack
+Answer: B. LinkedList or balanced tree (after Java 8)
+	11.	Which method does HashSet use to check for duplicate elements before adding them?
+	•	A. hashCode()
+	•	B. compareTo()
+	•	C. equals()
+	•	D. contains()
+Answer: C. equals()
+	12.	How does HashSet handle hash collisions?
+	•	A. By maintaining duplicates in the same bucket.
+	•	B. By replacing the existing element.
+	•	C. By using a linked list or tree within the bucket.
+	•	D. By throwing an exception.
+Answer: C. By using a linked list or tree within the bucket.
+	13.	What is stored as the value in the HashMap used internally by HashSet?
+	•	A. The actual element
+	•	B. The hash code of the element
+	•	C. A constant dummy value
+	•	D. The index of the element
+Answer: C. A constant dummy value
+
+Advanced Topics
+
+	14.	How does HashSet ensure no two equal elements are stored?
+	•	A. Using both hashCode() and equals() methods
+	•	B. Only using equals() method
+	•	C. Only using hashCode() method
+	•	D. By maintaining an index for each element
+Answer: A. Using both hashCode() and equals() methods
+	15.	Which of the following describes the time complexity of HashSet operations under normal circumstances?
+	•	A. O(log n)
+	•	B. O(n)
+	•	C. O(1)
+	•	D. O(n^2)
+Answer: C. O(1)
+	16.	Which of the following is NOT true about HashSet?
+	•	A. It uses hashing to store elements.
+	•	B. It is a part of the java.util package.
+	•	C. It is synchronized by default.
+	•	D. It allows one null value.
+Answer: C. It is synchronized by default.
+
+HashSet Practical Usage
+
+	17.	Which of these scenarios is HashSet best suited for?
+	•	A. Storing elements in insertion order
+	•	B. Storing elements with duplicate values
+	•	C. Quick lookup and storage of unique elements
+	•	D. Maintaining a synchronized collection
+Answer: C. Quick lookup and storage of unique elements
+	18.	If a class is to be stored in a HashSet, what must it implement to ensure correct behavior?
+	•	A. Serializable interface
+	•	B. hashCode() and equals() methods
+	•	C. Comparable interface
+	•	D. Clonable interface
+Answer: B. hashCode() and equals() methods
+	19.	What would happen if you tried to add a null value to a HashSet?
+	•	A. Throws a NullPointerException.
+	•	B. Adds the null value if no null is already present.
+	•	C. Ignores the null value.
+	•	D. Replaces an existing null value if one is present.
+Answer: B. Adds the null value if no null is already present.
+	20.	Which of the following methods is NOT applicable to HashSet?
+	•	A. add()
+	•	B. remove()
+	•	C. get()
+	•	D. contains()
+Answer: C. get()
 
 Q. How to HashSet internally work?
 Internally, it uses a HashMap to store its elements.

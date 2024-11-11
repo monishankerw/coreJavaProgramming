@@ -96,3 +96,151 @@
 25. **Write a method to check if two ArrayLists are equal.**
     - Example: `list1.equals(list2);`
 
+
+
+Here are some multiple-choice questions (MCQs) covering various aspects of collections in Java:
+
+Basic Concepts
+
+	1.	What is the main difference between Collection and Collections in Java?
+	•	A. Collection is a class, and Collections is an interface.
+	•	B. Collection is an interface, and Collections is a class with utility methods.
+	•	C. Both are classes.
+	•	D. Both are interfaces.
+Answer: B. Collection is an interface, and Collections is a class with utility methods.
+2.	What is the main difference between an array and a Collection in Java?
+•	A. Arrays are dynamic, while Collections are fixed in size.
+•	B. Arrays only store homogeneous data, whereas collections can store both homogeneous and heterogeneous data.
+•	C. Arrays are less memory-efficient than collections.
+•	D. Arrays have an underlying data structure, while collections do not.
+Answer: B. Arrays only store homogeneous data, whereas collections can store both homogeneous and heterogeneous data.
+3.	Which of the following is an interface?
+•	A. ArrayList
+•	B. HashSet
+•	C. Collection
+•	D. Collections
+Answer: C. Collection
+4.	Which class is part of the List hierarchy?
+•	A. HashSet
+•	B. LinkedList
+•	C. TreeSet
+•	D. PriorityQueue
+Answer: B. LinkedList
+
+ArrayList Operations
+
+	5.	How do you add an element to an ArrayList?
+	•	A. list.insert(10);
+	•	B. list.add(10);
+	•	C. list.put(10);
+	•	D. list.push(10);
+Answer: B. list.add(10);
+6.	Which method is used to remove an element by value from an ArrayList?
+•	A. list.delete(10);
+•	B. list.remove(0);
+•	C. list.drop(10);
+•	D. list.erase(10);
+Answer: B. list.remove(0);
+7.	What is the complexity of accessing an element by index in an ArrayList?
+•	A. O(1)
+•	B. O(n)
+•	C. O(log n)
+•	D. O(n^2)
+Answer: A. O(1)
+8.	What is the output of list.contains(10); if 10 is in the list?
+•	A. false
+•	B. true
+•	C. -1
+•	D. null
+Answer: B. true
+
+Advanced ArrayList Operations
+
+	9.	How do you sort an ArrayList in ascending order?
+	•	A. Collections.sort(list);
+	•	B. list.sortAscending();
+	•	C. list.order();
+	•	D. Arrays.sort(list);
+Answer: A. Collections.sort(list);
+10.	Which method converts an ArrayList to an array?
+•	A. list.convertToArray()
+•	B. list.toArray(new Integer[0])
+•	C. Arrays.asArray(list)
+•	D. list.makeArray()
+Answer: B. list.toArray(new Integer[0])
+11.	Which of the following correctly converts an array to an ArrayList?
+•	A. new ArrayList<>(array);
+•	B. Arrays.asList(array);
+•	C. ArrayList.fromArray(array);
+•	D. new ArrayList(Arrays.asList(array));
+Answer: D. new ArrayList<>(Arrays.asList(array));
+
+Performance and Capacity
+
+	12.	What is the default initial capacity of an ArrayList?
+	•	A. 5
+	•	B. 10
+	•	C. 15
+	•	D. 20
+Answer: B. 10
+13.	Which method trims an ArrayList to its actual size?
+•	A. list.trim()
+•	B. list.trimToSize()
+•	C. list.resize()
+•	D. list.compress()
+Answer: B. list.trimToSize()
+
+ArrayList vs. LinkedList
+
+	14.	Which data structure is more efficient for inserting and deleting elements in the middle?
+	•	A. ArrayList
+	•	B. LinkedList
+	•	C. HashSet
+	•	D. Stack
+Answer: B. LinkedList
+15.	What is a key difference between ArrayList and LinkedList?
+•	A. ArrayList is thread-safe, while LinkedList is not.
+•	B. ArrayList uses a dynamic array, and LinkedList uses a doubly linked list.
+•	C. ArrayList can only store homogeneous data.
+•	D. LinkedList has a fixed size.
+Answer: B. ArrayList uses a dynamic array, and LinkedList uses a doubly linked list.
+
+Concurrency and Synchronization
+
+	16.	Which of the following makes an ArrayList thread-safe?
+	•	A. Collections.synchronizedList(list);
+	•	B. list.makeThreadSafe();
+	•	C. ThreadSafeArrayList(list);
+	•	D. list.sync();
+Answer: A. Collections.synchronizedList(list);
+17.	What is a CopyOnWriteArrayList?
+•	A. A variant of ArrayList that removes duplicates.
+•	B. A thread-safe list that creates a copy for each write operation.
+•	C. An array-backed list with a fixed size.
+•	D. An extension of LinkedList.
+Answer: B. A thread-safe list that creates a copy for each write operation.
+
+Functional Programming and Streams
+
+	18.	Which of the following is correct for filtering elements in an ArrayList?
+	•	A. list.stream().filter(x -> x > 10).collect(Collectors.toList());
+	•	B. list.filter(x -> x > 10);
+	•	C. list.filterAll(x -> x > 10);
+	•	D. list.stream().collect(Collectors.filter(x -> x > 10));
+Answer: A. list.stream().filter(x -> x > 10).collect(Collectors.toList());
+
+Problem-Solving and Utilities
+
+	19.	Which method removes all elements from an ArrayList?
+	•	A. list.deleteAll();
+	•	B. list.clear();
+	•	C. list.removeAll();
+	•	D. list.reset();
+Answer: B. list.clear();
+20.	How do you find the maximum value in an ArrayList of integers?
+•	A. Collections.max(list);
+•	B. list.max();
+•	C. list.getMax();
+•	D. ArrayList.max(list);
+Answer: A. Collections.max(list);
+
