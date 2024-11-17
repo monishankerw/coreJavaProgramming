@@ -1,6 +1,5 @@
     
 ----
-----
      -> Developing a feature such that it can take more than one form depending on sistuation is called Polymorphism.
      -> In java polymorphism is mainly divided into two types:
         1. compile time polymorphism

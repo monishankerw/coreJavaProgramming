@@ -54,4 +54,92 @@ String empName = emp.getName(); // Using getter
 - **Data Hiding:** Protects the internal state of the object from unintended interference.
 - **Increased Flexibility:** You can change the internal implementation without affecting other parts of the code.
 - **Reusability:** Encapsulated code is easier to reuse in other programs or projects.
+
+Here are some multiple-choice questions (MCQs) based on the concept of Encapsulation in Java:
+
+MCQs
+
+	1.	What is the primary purpose of encapsulation in Java?
+A. To increase performance
+B. To hide implementation details and protect data
+C. To make the code shorter
+D. To implement inheritance
+Answer: B. To hide implementation details and protect data
+
+	2.	Which of the following is NOT a feature of encapsulation?
+A. Data hiding
+B. Using public getter and setter methods
+C. Allowing direct access to private fields
+D. Controlling access to data
+Answer: C. Allowing direct access to private fields
+
+	3.	Which keyword is used to make a class member private?
+A. public
+B. private
+C. protected
+D. static
+Answer: B. private
+
+	4.	How can we access a private variable of a class?
+A. By using the this keyword
+B. By creating an object and directly accessing the variable
+C. By using getter and setter methods
+D. By declaring the variable as public
+Answer: C. By using getter and setter methods
+
+	5.	Which of the following statements about encapsulation is true?
+A. Encapsulation requires variables to be declared public.
+B. Encapsulation makes the implementation details of a class accessible to all.
+C. Encapsulation allows us to hide implementation details using private variables and provides controlled access via public methods.
+D. Encapsulation prevents inheritance in Java.
+Answer: C. Encapsulation allows us to hide implementation details using private variables and provides controlled access via public methods.
+
+	6.	What is the role of setter methods in encapsulation?
+A. To directly access private variables
+B. To set or update the value of private variables
+C. To initialize private variables during object creation
+D. To protect methods from being overridden
+Answer: B. To set or update the value of private variables
+
+	7.	What happens if a variable is declared as private in a class?
+A. It can only be accessed from within the same package.
+B. It can only be accessed by classes in the same hierarchy.
+C. It cannot be accessed directly from outside the class.
+D. It is automatically assigned a default value.
+Answer: C. It cannot be accessed directly from outside the class.
+
+	8.	In the following code, what will happen if you try to access the age variable directly from outside the Person class?
+
+public class Person {
+private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+A. You will get a runtime error.
+B. You will get a compilation error.
+C. The value of age will be printed.
+D. The code will work fine without errors.
+Answer: B. You will get a compilation error.
+
+	9.	Encapsulation in Java is implemented using:
+A. Abstract classes
+B. Access modifiers
+C. Interfaces
+D. Inheritance
+Answer: B. Access modifiers
+
+	10.	Which of the following benefits is NOT associated with encapsulation?
+A. Data hiding
+B. Increased code maintainability
+C. Reduced security
+D. Flexibility in changing implementation
+Answer: C. Reduced security
 ```
+

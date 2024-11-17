@@ -119,3 +119,99 @@ class OverloadingExample {
     }
 }
 
+Here are some multiple-choice questions (MCQs) related to the provided topic:
+
+1. What is another name for compile-time polymorphism in Java?
+
+	•	a) Dynamic polymorphism
+	•	b) Late binding
+	•	c) Static polymorphism
+	•	d) Interface polymorphism
+
+Answer: c) Static polymorphism
+
+2. Which of the following is true about method overloading?
+
+	•	a) Methods must have the same return type but different parameter lists.
+	•	b) Methods must have different names but the same parameter list.
+	•	c) Methods can have the same name but must differ in parameter lists.
+	•	d) Methods can only differ by the static keyword.
+
+Answer: c) Methods can have the same name but must differ in parameter lists.
+
+3. Can static methods be overloaded in Java?
+
+	•	a) Yes
+	•	b) No
+
+Answer: a) Yes
+
+4. Which of the following will cause a compilation error during method overloading?
+
+	•	a) Two methods with the same name but different parameter types.
+	•	b) Two methods with the same name and same parameter list but different return types.
+	•	c) Two methods with the same name but different numbers of parameters.
+	•	d) Two methods with the same name but different order of parameters.
+
+Answer: b) Two methods with the same name and same parameter list but different return types.
+
+5. What determines which overloaded method gets called?
+
+	•	a) The return type of the method
+	•	b) The number and type of parameters in the method call
+	•	c) The order in which methods are defined
+	•	d) The visibility of the methods
+
+Answer: b) The number and type of parameters in the method call
+
+6. Is it possible to overload the main method in Java?
+
+	•	a) Yes, and the JVM can call any of them during program execution.
+	•	b) Yes, but the JVM only calls the main(String[] args) method.
+	•	c) No, method overloading is not allowed for the main method.
+	•	d) No, the main method must always have the same signature.
+
+Answer: b) Yes, but the JVM only calls the main(String[] args) method.
+
+7. Which of the following is a valid reason for method overloading?
+
+	•	a) To improve code readability and reusability.
+	•	b) To ensure dynamic method resolution at runtime.
+	•	c) To override methods of a parent class.
+	•	d) To change the return type of a method.
+
+Answer: a) To improve code readability and reusability.
+
+8. What will the following code output?
+
+public class Test {
+    public void display(int a) {
+        System.out.println("Integer method: " + a);
+    }
+
+    public void display(double a) {
+        System.out.println("Double method: " + a);
+    }
+
+    public static void main(String[] args) {
+        Test obj = new Test();
+        obj.display(10);
+        obj.display(10.5);
+    }
+}
+
+	•	a) Compilation error
+	•	b) Integer method: 10
+Double method: 10.5
+	•	c) Integer method: 10
+Integer method: 10.5
+	•	d) Double method: 10
+Double method: 10.5
+
+Answer: b)
+
+Integer method: 10  
+Double method: 10.5  
+
+Would you like additional questions or deeper explanations? 😊
+

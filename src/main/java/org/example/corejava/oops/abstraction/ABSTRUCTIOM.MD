@@ -129,5 +129,101 @@ In this example, the `name` and `age` variables are encapsulated within the `Emp
 - **Abstraction** focuses on hiding the complexity of a system by exposing only what is necessary.
 - **Encapsulation** focuses on bundling data with the methods that operate on it, restricting unauthorized access.
 
+Here are some multiple-choice questions (MCQs) based on the provided content:
+
+MCQ on Abstraction
+
+1. What is abstraction in Java?
+   A. Encapsulation of data
+   B. Hiding implementation details and showing only functionality
+   C. Making all methods private
+   D. Making all variables public
+
+Answer:
+B. Hiding implementation details and showing only functionality
+
+2. Which of the following can achieve 100% abstraction?
+   A. Abstract class
+   B. Concrete class
+   C. Interface
+   D. Static class
+
+Answer:
+C. Interface
+
+3. Can an abstract class have a constructor in Java?
+   A. Yes
+   B. No
+
+Answer:
+A. Yes
+
+4. What keyword is used to declare an abstract method in Java?
+   A. abstract
+   B. final
+   C. static
+   D. private
+
+Answer:
+A. abstract
+
+5. What happens if a subclass does not implement all abstract methods of its superclass?
+   A. Compilation error
+   B. Runtime error
+   C. No error; it works fine
+   D. Abstract methods are automatically implemented
+
+Answer:
+A. Compilation error
+
+MCQ on Encapsulation
+
+6. What does encapsulation achieve?
+   A. Hiding data from unauthorized access
+   B. Exposing all variables to subclasses
+   C. Removing all methods from the class
+   D. None of the above
+
+Answer:
+A. Hiding data from unauthorized access
+
+7. In encapsulation, how is access to private variables typically provided?
+   A. By using static methods
+   B. Through public getter and setter methods
+   C. By declaring all methods as final
+   D. By inheriting the variables
+
+Answer:
+B. Through public getter and setter methods
+
+MCQ on Abstract Class vs Interface
+
+8. Which of the following is TRUE about an interface in Java?
+   A. It can have both static and non-static variables.
+   B. All methods in an interface are abstract by default.
+   C. An interface can be instantiated.
+   D. An interface does not support multiple inheritance.
+
+Answer:
+B. All methods in an interface are abstract by default.
+
+9. Which of the following is FALSE about abstract classes in Java?
+   A. They can have concrete methods.
+   B. They support multiple inheritance.
+   C. They cannot be instantiated.
+   D. They can have constructors.
+
+Answer:
+B. They support multiple inheritance.
+
+10. What is the primary difference between abstraction and encapsulation?
+    A. Abstraction focuses on hiding data, while encapsulation hides the implementation.
+    B. Abstraction is achieved using access modifiers, while encapsulation uses interfaces.
+    C. Abstraction hides implementation, while encapsulation hides data.
+    D. Both achieve the same goal in Java.
+
+Answer:
+C. Abstraction hides implementation, while encapsulation hides data.
+
 ```
 
