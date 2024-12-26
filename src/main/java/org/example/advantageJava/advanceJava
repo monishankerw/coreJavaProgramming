@@ -113,7 +113,9 @@ public class B {
 
    -------------------->>>>>>>>>>>SERVLET------------------------------>>>>>>>>>>>>>>>>>------------->>>>>>>>>>>>>>>
 
-   ->Servlet is a java class extends HttpServlet. It is used to develop backend code and helps us to read data from the frontend view and backend bussiness logic.
+   ->Servlet is a java class extends HttpServlet.
+   It is used to develop backend code and helps us to read data from the frontend view
+   and backend bussiness logic.
 
    Two methods:
    doget() & dopost()
@@ -343,6 +345,7 @@ public class FirstServlet extends HttpServlet {
 session variable:session Variable are once you store data in that the data can access the application regrdless of request dispacher used or not.
 request variable:The variable data can be exchange between servlet only when request concept is used.
 
+
 SERVLET LIFE Cycle
 
 create Servlet--->start server--->Tomcat Container--->init()--->service method(doGet(),doPost())--->destroy()--->end
@@ -383,6 +386,8 @@ public class AddController extends HttpServlet {
         System.out.println("destroyed");
     }
 }
+
+
 
 
 JSP: JAKARTA SERVER PAGES
