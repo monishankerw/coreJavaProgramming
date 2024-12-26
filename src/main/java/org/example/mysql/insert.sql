@@ -81,4 +81,34 @@ This will display all the data in the `employees` table.
 
 ---
 
-Let me know if you'd like further assistance with this or if you're facing any issues!
+CREATE DATABASE company;
+use company;
+
+CREATE TABLE employees (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    department VARCHAR(50),
+    salary DECIMAL(10, 2)
+    );
+    
+    INSERT INTO employees (first_name, last_name, department, salary)
+VALUES
+('John1', 'Doe1', 'IT', 50000),
+('John2', 'Doe2', 'HR', 52000),
+('John3', 'Doe3', 'Finance', 54000),
+('John4', 'Doe4', 'Marketing', 56000),
+('John5', 'Doe5', 'Sales', 58000),
+('John6', 'Doe6', 'Operations', 60000),
+('John100', 'Doe100', 'Admin', 70000);
+
+# Read the emp name whose salary is 54000/-
+SELECT first_name, last_name
+FROM employees
+WHERE salary = 54000;
+
+# Read the emp name whose salary is greate than 54000/-
+
+SELECT first_name, last_name
+FROM employees
+WHERE salary >= 54000;

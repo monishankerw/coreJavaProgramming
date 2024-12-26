@@ -1,4 +1,5 @@
  Thread:
+ 
        MultiTasking done at program level is called as thread.
        -> Threads are light weight.
        -> Threads share same address space.
