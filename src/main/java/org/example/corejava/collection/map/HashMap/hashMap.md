@@ -28,7 +28,32 @@ Here’s the Markdown version of the content you shared:
   2. Does not allow duplicate values.
   3. `add(obj)` method is used.
   4. Requires one object.
+    
+### Q. What is Hashing and What is rehashing?
+What is Hashing?
 
+Hashing is a way to store data in a HashMap using a special function (hash function) 
+that converts a key (like a number or a word) into a unique number (called a hash code). 
+This number tells the HashMap where to save or find the data quickly.
+
+What is Rehashing?
+
+Rehashing happens when a HashMap gets too full. 
+The size of the map is increased, and all the data is rearranged (rehashed) to
+fit into the new size. This helps keep the HashMap fast for adding and finding data.
+
+### Q. Initial Capacity of Hashmap?
+- **Initial Capacity (IC)** = 16
+### Q. What is the Load Factor of HashMap?
+- **Load Factor (LF)** = 0.75
+### Q. What is the threshold of the Hashmap and How it is calculated?
+- **Hashing Calculation**: IC * LF = 16 * 0.75 = 12
+### Q. How initial capacity and load factor affect the performance of an HashMap?
+- **Initial Capacity (IC)** = 16
+    - **Load Factor (LF)** = 0.75
+    - **Hashing Calculation**: IC * LF = 16 * 0.75 = 12
+    - At the 12th key-value pair, `HashMap`'s capacity will double to 32.
+    
 ### Q. How does `HashMap` work internally?
 - HashMap internally works similar to a `HashTable`.
 - Example:
